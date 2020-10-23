@@ -5,3 +5,5 @@
 /.vs
 /src/QAToolKit.Core/obj
 /test/QAToolKit.Core.Test/obj
+/test/QAToolKit.Core.Test/bin
+/src/QAToolKit.Core/bin
