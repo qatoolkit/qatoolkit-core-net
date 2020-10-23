@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAToolKit.Core", "src\QAToolKit.Core\QAToolKit.Core.csproj", "{AF3E980C-1AF0-4348-8F5A-419336EBCDD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAToolKit.Core.Test", "test\QAToolKit.Core.Test\QAToolKit.Core.Test.csproj", "{205D340E-D36E-41DC-9F39-98FACEEA90A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF3E980C-1AF0-4348-8F5A-419336EBCDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF3E980C-1AF0-4348-8F5A-419336EBCDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF3E980C-1AF0-4348-8F5A-419336EBCDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF3E980C-1AF0-4348-8F5A-419336EBCDD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205D340E-D36E-41DC-9F39-98FACEEA90A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205D340E-D36E-41DC-9F39-98FACEEA90A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205D340E-D36E-41DC-9F39-98FACEEA90A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205D340E-D36E-41DC-9F39-98FACEEA90A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C6E4A21-9D9D-4FF8-BEAB-97F5D6716E0C}
+	EndGlobalSection
+EndGlobal
