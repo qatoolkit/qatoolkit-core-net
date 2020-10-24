@@ -29,6 +29,7 @@ jobs:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: src/QAToolKit.Core/QAToolKit.Core.csproj
         VERSION_FILE_PATH: Directory.Build.props
+        #NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.0
       with:
