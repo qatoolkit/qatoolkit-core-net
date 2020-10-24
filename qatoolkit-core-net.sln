@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAToolKit.Core", "src\QAToolKit.Core\QAToolKit.Core.csproj", "{AF3E980C-1AF0-4348-8F5A-419336EBCDD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAToolKit.Core.Test", "test\QAToolKit.Core.Test\QAToolKit.Core.Test.csproj", "{205D340E-D36E-41DC-9F39-98FACEEA90A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAToolKit.Core.Test", "src\QAToolKit.Core.Test\QAToolKit.Core.Test.csproj", "{205D340E-D36E-41DC-9F39-98FACEEA90A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
