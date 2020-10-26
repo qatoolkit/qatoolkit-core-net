@@ -8,6 +8,7 @@
         public static readonly AuthenticationType Administrator = new AuthenticationType("@administrator");
         public static readonly AuthenticationType Oauth2 = new AuthenticationType("@oauth2");
         public static readonly AuthenticationType ApiKey = new AuthenticationType("@apikey");
+        public static readonly AuthenticationType Basic = new AuthenticationType("@basic");
 
         public AuthenticationType(string value)
         {

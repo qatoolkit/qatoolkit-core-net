@@ -3,7 +3,7 @@
 
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit.
 
-It contains general code for QAToolKit libraries.
+It contains general interfaces and models for QAToolKit libraries.
 
 # License
 
