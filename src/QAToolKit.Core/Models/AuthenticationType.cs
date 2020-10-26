@@ -1,5 +1,8 @@
 ﻿namespace QAToolKit.Core.Models
 {
+    /// <summary>
+    /// Swagger authentication Type tag
+    /// </summary>
     public class AuthenticationType
     {
         private readonly string _value;

@@ -2,6 +2,9 @@
 
 namespace QAToolKit.Core.Models
 {
+    /// <summary>
+    /// RequestFilter object that can be used to filter out the requests
+    /// </summary>
     public class RequestFilter
     {
         public string[] EndpointNameWhitelist { get; set; }

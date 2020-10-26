@@ -3,6 +3,9 @@ using System.Net.Http;
 
 namespace QAToolKit.Core.Models
 {
+    /// <summary>
+    /// HttpTestRequest object
+    /// </summary>
     public class HttpTestRequest
     {
         public string BasePath { get; set; }

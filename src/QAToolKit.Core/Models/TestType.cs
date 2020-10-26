@@ -1,7 +1,7 @@
 ﻿namespace QAToolKit.Core.Models
 {
     /// <summary>
-    /// Test types tags
+    /// Swagger test types tags
     /// </summary>
     public class TestType
     {

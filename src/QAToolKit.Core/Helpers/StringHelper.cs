@@ -93,5 +93,26 @@ namespace QAToolKit.Core.Helpers
                 indexes.Add(index);
             }
         }
+
+        /// <summary>
+        /// Obfuscate a string with custom data between two strings
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="startTag"></param>
+        /// <param name="endTag"></param>
+        /// <param name="replaceWith"></param>
+        /// <returns></returns>
+        public static string ObfuscateStringBetween(string original, string startTag, string endTag, string replaceWith)
+        {
+            var pattern = startTag + "(.*?)" + endTag;
+            var regex = new Regex(pattern, RegexOptions.RightToLeft);
+
+            foreach (Match match in regex.Matches(original))
+            {
+                original = original.Replace(match.Groups[1].Value, replaceWith);
+            }
+
+            return original;
+        }
     }
 }

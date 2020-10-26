@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 
 		<!-- NuGet Metadata -->
@@ -19,11 +19,11 @@
 		<RepositoryUrl>https://github.com/qatoolkit/qatoolkit-core-net</RepositoryUrl>
 		<PackageTags>qatoolkit-core-net;.net;c#;f#;dotnet;netstandard</PackageTags>
 		<Configurations>Debug;Release;Debug With Project References</Configurations>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\..\qatoolkit-64x64.png" Pack="true" PackagePath="\" />
 		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
 	</ItemGroup>
-
 </Project>
