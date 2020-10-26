@@ -9,6 +9,11 @@ namespace QAToolKit.Core.Interfaces
     /// <typeparam name="IResult"></typeparam>
     public interface ITestSource<ISource, IResult>
     {
+        /// <summary>
+        /// Load
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         Task<IResult> Load(ISource source);
     }
 }

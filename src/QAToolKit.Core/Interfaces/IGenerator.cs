@@ -9,6 +9,11 @@ namespace QAToolKit.Core.Interfaces
     /// <typeparam name="IResult"></typeparam>
     public interface IGenerator<ISource, IResult>
     {
+        /// <summary>
+        /// Generate
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         Task<IResult> Generate(ISource source);
     }
 }

@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace QAToolKit.Core.Helpers
 {
+    /// <summary>
+    /// Collection of string helper functions
+    /// </summary>
     public static class StringHelper
     {
         /// <summary>
@@ -80,6 +83,12 @@ namespace QAToolKit.Core.Helpers
             return input.Trim();
         }
 
+        /// <summary>
+        /// Get a list of all indexes of a string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static List<int> AllIndexesOf(string str, string value)
         {
             if (String.IsNullOrEmpty(value))
