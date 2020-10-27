@@ -1,5 +1,6 @@
 # QAToolKit Core library
 ![.NET Core](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)
+![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core)
 
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit.
 
