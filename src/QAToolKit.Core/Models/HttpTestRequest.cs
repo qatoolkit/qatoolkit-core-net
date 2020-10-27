@@ -41,9 +41,9 @@ namespace QAToolKit.Core.Models
         /// </summary>
         public List<Parameter> Parameters { get; set; }
         /// <summary>
-        /// Request body
+        /// Request bodies
         /// </summary>
-        public RequestBody RequestBody { get; set; }
+        public List<RequestBody> RequestBodies { get; set; }
         /// <summary>
         /// List of HTTP response parameters
         /// </summary>
@@ -113,6 +113,10 @@ namespace QAToolKit.Core.Models
         /// Request body model name
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Request body content type
+        /// </summary>
+        public string ContentType { get; set; }
         /// <summary>
         /// Request body model properties
         /// </summary>
