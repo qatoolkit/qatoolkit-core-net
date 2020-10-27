@@ -5,6 +5,8 @@
 
 It contains general interfaces and models for QAToolKit libraries.
 
+Please note, that the library is in `beta`.
+
 # License
 
 MIT License
