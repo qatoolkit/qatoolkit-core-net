@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build .NET Library
 
 on:
   push:
@@ -23,13 +23,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: Pack NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-        # Filepath of the project to be packaged, relative to root of repository
-        PROJECT_FILE_PATH: src/QAToolKit.Core/QAToolKit.Core.csproj
-        VERSION_FILE_PATH: Directory.Build.props
-        #NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.0
       with:
