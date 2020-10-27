@@ -86,5 +86,18 @@ namespace QAToolKit.Core.Test.Helpers
 
             Assert.Equal(2, result.Count());
         }
+
+        [Theory]
+        [InlineData(" \"Auth: krjhsa54+343= \"", "\"Auth: ", "\"", "***")]
+        public void ObfuscateStringBetween_Success(string input, string startTag, string endTag, string replaceWith)
+        {
+            var result = StringHelper.ObfuscateStringBetween(input, startTag, endTag, replaceWith);
+
+            Assert.Equal(" \"Auth: ***\"", result);
+        }
+
+
+
+        
     }
 }
