@@ -51,11 +51,11 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// List of test type tags
         /// </summary>
-        public IEnumerable<TestType> TestTypes { get; set; }
+        public List<TestType> TestTypes { get; set; }
         /// <summary>
         /// A list of authentication type tags
         /// </summary>
-        public IEnumerable<AuthenticationType> AuthenticationTypes { get; set; }
+        public List<AuthenticationType> AuthenticationTypes { get; set; }
     }
 
     /// <summary>
@@ -95,13 +95,25 @@ namespace QAToolKit.Core.Models
         /// </summary>
         public string Description { get; set; }
         /// <summary>
-        /// Property type
+        /// OpenApi property format of an object; string, date-time, int64,...
+        /// </summary>
+        public string Format { get; set; }
+        /// <summary>
+        /// OpenApi property type integer, string, array, object
         /// </summary>
         public string Type { get; set; }
         /// <summary>
         /// Property value
         /// </summary>
         public string Value { get; set; }
+        /// <summary>
+        /// In case of type array we can have multiple items
+        /// </summary>
+        public Property Items { get; set; }
+        /// <summary>
+        /// Schema properties
+        /// </summary>
+        public List<Property> Properties { get; set; }
     }
 
     /// <summary>
@@ -116,7 +128,7 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// Request body content type
         /// </summary>
-        public string ContentType { get; set; }
+        public ContentType ContentType { get; set; }
         /// <summary>
         /// Request body model properties
         /// </summary>
@@ -137,4 +149,6 @@ namespace QAToolKit.Core.Models
         /// </summary>
         public List<Property> Properties { get; set; }
     }
+
+
 }
