@@ -128,7 +128,7 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// Request body content type
         /// </summary>
-        public string ContentType { get; set; }
+        public ContentType ContentType { get; set; }
         /// <summary>
         /// Request body model properties
         /// </summary>
@@ -149,4 +149,6 @@ namespace QAToolKit.Core.Models
         /// </summary>
         public List<Property> Properties { get; set; }
     }
+
+
 }
