@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 
 namespace QAToolKit.Core.Models
@@ -79,6 +80,14 @@ namespace QAToolKit.Core.Models
         /// Paramter value
         /// </summary>
         public string Value { get; set; }
+        /// <summary>
+        /// Is parameter required
+        /// </summary>
+        public bool Required { get; set; }
+        /// <summary>
+        /// Parameter location can be either path or in query
+        /// </summary>
+        public Location Location { get; set; }
     }
 
     /// <summary>
@@ -107,9 +116,9 @@ namespace QAToolKit.Core.Models
         /// </summary>
         public string Value { get; set; }
         /// <summary>
-        /// In case of type array we can have multiple items
+        /// Is property required
         /// </summary>
-        public Property Items { get; set; }
+        public bool Required { get; set; }
         /// <summary>
         /// Schema properties
         /// </summary>
@@ -125,6 +134,10 @@ namespace QAToolKit.Core.Models
         /// Request body model name
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Is parameter required
+        /// </summary>
+        public bool Required { get; set; }
         /// <summary>
         /// Request body content type
         /// </summary>
@@ -143,12 +156,72 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// Response HTTP status code
         /// </summary>
-        public string StatusCode { get; set; }
+        public HttpStatusCode? StatusCode { get; set; }
+        /// <summary>
+        /// Is return object a single item or array
+        /// </summary>
+        public ResponseType Type { get; set; }
         /// <summary>
         /// Response paramters
         /// </summary>
         public List<Property> Properties { get; set; }
     }
 
+    /// <summary>
+    /// The location of paramter in HTTP request
+    /// </summary>
+    public enum Location
+    {
+        /// <summary>
+        /// Undefined
+        /// </summary>
+        Undefined,
+        /// <summary>
+        /// URI path
+        /// </summary>
+        Path,
+        /// <summary>
+        /// URI query
+        /// </summary>
+        Query,
+        /// <summary>
+        /// Header parameter
+        /// </summary>
+        Header,
+        /// <summary>
+        /// Cookie parameter
+        /// </summary>
+        Cookie
+    }
 
+    /// <summary>
+    /// Response body type
+    /// </summary>
+    public enum ResponseType
+    {
+        /// <summary>
+        /// undefined response type
+        /// </summary>
+        Undefined,
+        /// <summary>
+        /// Empty body response
+        /// </summary>
+        Empty,
+        /// <summary>
+        /// Single item/object response
+        /// </summary>
+        Object,
+        /// <summary>
+        /// List of objects response
+        /// </summary>
+        Objects,
+        /// <summary>
+        /// Array of primitive values
+        /// </summary>
+        Array,
+        /// <summary>
+        /// Primitive value like integer, string, bool
+        /// </summary>
+        Primitive
+    }
 }
