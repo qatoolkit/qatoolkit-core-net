@@ -7,10 +7,22 @@ namespace QAToolKit.Core.Models
     /// </summary>
     public class ContentType
     {
+        /// <summary>
+        /// Content type enumeration representation
+        /// </summary>
         public enum Enumeration
         {
+            /// <summary>
+            /// Json content type
+            /// </summary>
             Json,
+            /// <summary>
+            /// Xml content type
+            /// </summary>
             Xml,
+            /// <summary>
+            /// Form url encoded content type
+            /// </summary>
             FormUrlEncoded
         }
 
