@@ -23,7 +23,11 @@ namespace QAToolKit.Core.Models
             /// <summary>
             /// Form url encoded content type
             /// </summary>
-            FormUrlEncoded
+            FormUrlEncoded,
+            /// <summary>
+            /// Binary content type for uploading files for example
+            /// </summary>
+            OctetStream
         }
 
         private readonly string _value;
@@ -40,6 +44,10 @@ namespace QAToolKit.Core.Models
         /// application/x-www-form-urlencoded
         /// </summary>
         public static readonly ContentType FormUrlEncoded = new ContentType("application/x-www-form-urlencoded");
+        /// <summary>
+        /// application/octet-stream content type
+        /// </summary>
+        public static readonly ContentType OctetStream = new ContentType("application/octet-stream");
 
         /// <summary>
         /// Content type constructor
@@ -79,6 +87,8 @@ namespace QAToolKit.Core.Models
                     return Xml;
                 case "application/x-www-form-urlencoded":
                     return FormUrlEncoded;
+                case "application/octet-stream":
+                    return OctetStream;
                 default:
                     throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }
@@ -99,6 +109,8 @@ namespace QAToolKit.Core.Models
                     return Xml;
                 case Enumeration.FormUrlEncoded:
                     return FormUrlEncoded;
+                case Enumeration.OctetStream:
+                    return OctetStream;
                 default:
                     throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }
@@ -124,6 +136,8 @@ namespace QAToolKit.Core.Models
                     return Enumeration.Xml;
                 case "application/x-www-form-urlencoded":
                     return Enumeration.FormUrlEncoded;
+                case "application/octet-stream":
+                    return Enumeration.OctetStream;
                 default:
                     throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }
@@ -149,6 +163,8 @@ namespace QAToolKit.Core.Models
                     return Enumeration.Xml;
                 case "application/x-www-form-urlencoded":
                     return Enumeration.FormUrlEncoded;
+                case "application/octet-stream":
+                    return Enumeration.OctetStream;
                 default:
                     throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }

@@ -7,21 +7,27 @@ namespace QAToolKit.Core.Test.Models
     public class ContentTypeTests
     {
         [Fact]
-        public void IntegrationTestTypesPresent_Success()
+        public void ContentTypeJsonTestsPresent_Success()
         {
             Assert.Equal("application/json", ContentType.Json.Value());
         }
 
         [Fact]
-        public void LoadTestTypesPresent_Success()
+        public void ContentTypeXmlTestsPresent_Success()
         {
             Assert.Equal("application/xml", ContentType.Xml.Value());
         }
 
         [Fact]
-        public void SqlTestTypesPresent_Success()
+        public void ContentTypeFormTestsPresent_Success()
         {
             Assert.Equal("application/x-www-form-urlencoded", ContentType.FormUrlEncoded.Value());
+        }
+
+        [Fact]
+        public void ContentTypeBinaryTestsPresent_Success()
+        {
+            Assert.Equal("application/octet-stream", ContentType.OctetStream.Value());
         }
 
         [Theory]
@@ -43,6 +49,13 @@ namespace QAToolKit.Core.Test.Models
         public void ConvertFormFromString_Success(string value)
         {
             Assert.Equal(ContentType.FormUrlEncoded, ContentType.From(value));
+        }
+
+        [Theory]
+        [InlineData("application/octet-stream")]
+        public void ConvertBinaryFromString_Success(string value)
+        {
+            Assert.Equal(ContentType.OctetStream, ContentType.From(value));
         }
 
         [Theory]
@@ -75,6 +88,13 @@ namespace QAToolKit.Core.Test.Models
             Assert.Equal(ContentType.FormUrlEncoded, ContentType.From(value));
         }
 
+        [Theory]
+        [InlineData(ContentType.Enumeration.OctetStream)]
+        public void ConvertBinaryFromEnum_Success(ContentType.Enumeration value)
+        {
+            Assert.Equal(ContentType.OctetStream, ContentType.From(value));
+        }
+
         [Fact]
         public void ConvertJsonObjectToString_Success()
         {
@@ -91,6 +111,12 @@ namespace QAToolKit.Core.Test.Models
         public void ConvertFormObjectToString_Success()
         {
             Assert.Equal("application/x-www-form-urlencoded", ContentType.FormUrlEncoded.Value());
+        }
+
+        [Fact]
+        public void ConvertBinaryObjectToString_Success()
+        {
+            Assert.Equal("application/octet-stream", ContentType.OctetStream.Value());
         }
 
         [Fact]
@@ -112,6 +138,12 @@ namespace QAToolKit.Core.Test.Models
         }
 
         [Fact]
+        public void ConvertBinaryObjectToEnum_Success()
+        {
+            Assert.Equal(ContentType.Enumeration.OctetStream, ContentType.ToEnum(ContentType.OctetStream));
+        }
+
+        [Fact]
         public void ConvertJsonStringToEnum_Success()
         {
             Assert.Equal(ContentType.Enumeration.Json, ContentType.ToEnum("application/json"));
@@ -127,6 +159,12 @@ namespace QAToolKit.Core.Test.Models
         public void ConvertFormStringToEnum_Success()
         {
             Assert.Equal(ContentType.Enumeration.FormUrlEncoded, ContentType.ToEnum("application/x-www-form-urlencoded"));
+        }
+
+        [Fact]
+        public void ConvertBinaryStringToEnum_Success()
+        {
+            Assert.Equal(ContentType.Enumeration.OctetStream, ContentType.ToEnum("application/octet-stream"));
         }
     }
 }
