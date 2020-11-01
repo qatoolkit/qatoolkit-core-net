@@ -6,7 +6,39 @@
 
 It contains general interfaces and models for QAToolKit libraries.
 
-Please note, that the library is in `beta`.
+## 1. HttpRequest Tools
+HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core`  
+library contains `HttpRequestTools` which gives us functions to manipulate the HttpRequest object. Currently
+there are `HttpRequestDataReplacer` and `HttpRequestDataGenerator` which is still experimental.
+
+### 1.1. HttpRequestDataReplacer
+This is a method that will add key/value pairs for replacement values you need to replace in the Swagger requests.
+
+In the example above we say: "Replace `{version}` placeholder in Path and URL parameters and JSON body models."
+
+In other words, if you have a test API endpoint like this: https://api.demo.com/v{version}/categories?parent={parentId} that will be set to https://api.demo.com/v1/categories?parent=4.
+
+That, does not stop there, you can also populate JSON request bodies in this way:
+
+[TODO sample JSON Body]
+
+        options.AddReplacementValues(new ReplacementValue[] {
+        new ReplacementValue()
+            {
+                Key = "version",
+                Value = "1"
+            },
+            {
+                Key = "parentId",
+                Value = "4"
+            }
+        });
+
+### 1.2. HttpRequestDataGenerator
+##### !! EXPERIMENTAL !!
+This is an experimental feature. It will generate the missing data in the `List<HttpRequest>` object from the swagger models, uri and query parameters.
+
+        options.AddDataGeneration();
 
 # License
 

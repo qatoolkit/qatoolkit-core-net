@@ -7,7 +7,7 @@ namespace QAToolKit.Core.Models
     /// <summary>
     /// HttpTestRequest object
     /// </summary>
-    public class HttpTestRequest
+    public class HttpRequest
     {
         /// <summary>
         /// Url base path
@@ -114,7 +114,7 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// Property value
         /// </summary>
-        public string Value { get; set; }
+        public object Value { get; set; }
         /// <summary>
         /// Is property required
         /// </summary>
@@ -141,7 +141,7 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// Request body content type
         /// </summary>
-        public ContentType ContentType { get; set; }
+        public ContentType.Enumeration ContentType { get; set; }
         /// <summary>
         /// Request body model properties
         /// </summary>
