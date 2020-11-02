@@ -25,4 +25,16 @@
     <ProjectReference Include="..\..\src\QAToolKit.Core\QAToolKit.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Assets\addPet.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\getPetByIdAndStatus.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\getPetById.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

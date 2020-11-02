@@ -79,19 +79,14 @@ namespace QAToolKit.Core.Models
                 throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }
 
-            switch (value.ToLower())
+            return (value.ToLower()) switch
             {
-                case "application/json":
-                    return Json;
-                case "application/xml":
-                    return Xml;
-                case "application/x-www-form-urlencoded":
-                    return FormUrlEncoded;
-                case "application/octet-stream":
-                    return OctetStream;
-                default:
-                    throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
-            }
+                "application/json" => Json,
+                "application/xml" => Xml,
+                "application/x-www-form-urlencoded" => FormUrlEncoded,
+                "application/octet-stream" => OctetStream,
+                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+            };
         }
 
         /// <summary>
@@ -101,19 +96,14 @@ namespace QAToolKit.Core.Models
         /// <returns></returns>
         public static ContentType From(Enumeration value)
         {
-            switch (value)
+            return value switch
             {
-                case Enumeration.Json:
-                    return Json;
-                case Enumeration.Xml:
-                    return Xml;
-                case Enumeration.FormUrlEncoded:
-                    return FormUrlEncoded;
-                case Enumeration.OctetStream:
-                    return OctetStream;
-                default:
-                    throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
-            }
+                Enumeration.Json => Json,
+                Enumeration.Xml => Xml,
+                Enumeration.FormUrlEncoded => FormUrlEncoded,
+                Enumeration.OctetStream => OctetStream,
+                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+            };
         }
 
         /// <summary>
@@ -128,19 +118,14 @@ namespace QAToolKit.Core.Models
                 throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }
 
-            switch (value._value)
+            return value._value switch
             {
-                case "application/json":
-                    return Enumeration.Json;
-                case "application/xml":
-                    return Enumeration.Xml;
-                case "application/x-www-form-urlencoded":
-                    return Enumeration.FormUrlEncoded;
-                case "application/octet-stream":
-                    return Enumeration.OctetStream;
-                default:
-                    throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
-            }
+                "application/json" => Enumeration.Json,
+                "application/xml" => Enumeration.Xml,
+                "application/x-www-form-urlencoded" => Enumeration.FormUrlEncoded,
+                "application/octet-stream" => Enumeration.OctetStream,
+                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+            };
         }
 
         /// <summary>
@@ -155,19 +140,14 @@ namespace QAToolKit.Core.Models
                 throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
             }
 
-            switch (value)
+            return value switch
             {
-                case "application/json":
-                    return Enumeration.Json;
-                case "application/xml":
-                    return Enumeration.Xml;
-                case "application/x-www-form-urlencoded":
-                    return Enumeration.FormUrlEncoded;
-                case "application/octet-stream":
-                    return Enumeration.OctetStream;
-                default:
-                    throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
-            }
+                "application/json" => Enumeration.Json,
+                "application/xml" => Enumeration.Xml,
+                "application/x-www-form-urlencoded" => Enumeration.FormUrlEncoded,
+                "application/octet-stream" => Enumeration.OctetStream,
+                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+            };
         }
     }
 }
