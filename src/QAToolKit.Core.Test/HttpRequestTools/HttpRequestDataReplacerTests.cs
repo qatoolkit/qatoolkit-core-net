@@ -70,7 +70,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
         }
 
         [Fact]
-        public async Task ReplaceBodyTest_Successfull()
+        public void ReplaceBodyTest_Successfull()
         {
             var content = File.ReadAllText("Assets/addPet.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
@@ -94,7 +94,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
         }
 
         [Fact]
-        public async Task ReplacePathTest_Successfull()
+        public void ReplacePathTest_Successfull()
         {
             var content = File.ReadAllText("Assets/getPetById.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
@@ -118,7 +118,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
         }
 
         [Fact]
-        public async Task ReplacePathAndUrlTest_Successfull()
+        public void ReplacePathAndUrlTest_Successfull()
         {
             var content = File.ReadAllText("Assets/getPetByIdAndStatus.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
