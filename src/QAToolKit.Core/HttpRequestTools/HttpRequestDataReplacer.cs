@@ -52,15 +52,17 @@ namespace QAToolKit.Core.HttpRequestTools
         public Uri ReplaceUrlParameters()
         {
             var path = ReplacePathParameters();
-            if (path == null)
+            if (string.IsNullOrEmpty(path))
             {
                 throw new Exception("Relative path can not be null.");
             }
 
             var query = ReplaceQueryParameters();
-            if (query != null)
+            if (!string.IsNullOrEmpty(query))
             {
-                return new Uri($"{path}?{query}", UriKind.Relative);
+                query = $"?{query}";
+
+                return new Uri($"{path}{query}", UriKind.Relative);
             }
             else
             {
@@ -182,6 +184,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 }
                 else
                 {
+                    //TODO
                     if (property.Required)
                     {
                         if (propertyType == typeof(IList))
