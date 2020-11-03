@@ -83,7 +83,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 {
                     foreach (var parameter in _request.Parameters.Where(kind => kind.Location == Location.Query))
                     {
-                        if (parameter.Name == replacementValue.Key)
+                        if (parameter.Name.ToLower() == replacementValue.Key.ToLower())
                         {
                             var type = replacementValue.Value.GetType();
 
@@ -171,7 +171,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 var propertyName = GetPropertyName(property);
                 if (IsSimple(propertyType))
                 {
-                    var value = _replacementValues.FirstOrDefault(v => v.Key == property.Name);
+                    var value = _replacementValues.FirstOrDefault(v => v.Key.ToLower() == property.Name.ToLower());
 
                     if (value == null)
                     {
@@ -184,26 +184,34 @@ namespace QAToolKit.Core.HttpRequestTools
                 }
                 else
                 {
+                    var value = _replacementValues.FirstOrDefault(v => v.Key.ToLower() == property.Name.ToLower());
+
                     //TODO
-                    if (property.Required)
+                    //if (property.Required)
+                    //{
+                    if (propertyType == typeof(IList))
                     {
-                        if (propertyType == typeof(IList))
-                        {
-                            obj.Add(propertyName, new JArray(new JValue("demo")));
-                        }
-                        else if (propertyType == typeof(object))
-                        {
-                            obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
-                        }
-                        else if (propertyType == typeof(Enum))
-                        {
-                            obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
-                        }
-                        else
-                        {
-                            throw new Exception($"{property.Type} not valid type.");
-                        }
+                        //obj.Add(propertyName, new JArray(new JValue("demo")));
+                        if (value != null)
+                            obj.Add(propertyName, JObject.Parse(value.Value.ToString()));
                     }
+                    else if (propertyType == typeof(object))
+                    {
+                        if (value != null)
+                            obj.Add(propertyName, JObject.Parse(value.Value.ToString()));
+                        //obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
+                    }
+                    else if (propertyType == typeof(Enum))
+                    {
+                        if (value != null)
+                            obj.Add(propertyName, JObject.Parse(value.Value.ToString()));
+                        //obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
+                    }
+                    else
+                    {
+                        throw new Exception($"{property.Type} not valid type.");
+                    }
+                    //}
                 }
             }
 

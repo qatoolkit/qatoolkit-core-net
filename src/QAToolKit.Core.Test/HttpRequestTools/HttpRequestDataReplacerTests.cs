@@ -83,6 +83,10 @@ namespace QAToolKit.Core.Test.HttpRequestTools
                 new ReplacementValue(){
                         Key = "name",
                         Value = "Miha J."
+                    },
+                new ReplacementValue(){
+                        Key = "category",
+                        Value = "{\"id\":1,\"name\":\"dog\"}"
                     }
             });
 
@@ -90,7 +94,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
 
             _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
 
-            Assert.Equal(@"{""id"":100,""name"":""Miha J.""}", (string)body);
+            Assert.Equal(@"{""id"":100,""name"":""Miha J."",""Category"":{""id"":1,""name"":""dog""}}", (string)body);
         }
 
         [Fact]
