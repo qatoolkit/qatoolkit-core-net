@@ -5,12 +5,12 @@ using Xunit;
 
 namespace QAToolKit.Core.Test.HttpRequestTools
 {
-    public class HttpRequestDataReplacerOptionsTests
+    public class DataReplacementOptionsTests
     {
         [Fact]
         public void SwaggerAddReplacementValuesTest_Successful()
         {
-            var options = new HttpRequestDataReplacerOptions();
+            var options = new DataReplacementOptions();
             options.AddReplacementValues(new ReplacementValue[] {
                 new ReplacementValue() {
                     Key = "userId",

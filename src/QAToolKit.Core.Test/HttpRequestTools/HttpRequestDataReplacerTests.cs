@@ -34,21 +34,23 @@ namespace QAToolKit.Core.Test.HttpRequestTools
                 }
             };
 
-            var generator = new HttpRequestDataReplacer(request, replacementValues);
+            var generator = new HttpRequestUrlGenerator(request, options =>
+            {
+                options.AddReplacementValues(replacementValues);
+            });
 
-            var path = generator.ReplacePathParameters();
-            var query = generator.ReplaceQueryParameters();
+            var url = generator.GetUrl();
 
-            _logger.LogInformation(JsonConvert.SerializeObject(path, Formatting.Indented));
+            _logger.LogInformation(JsonConvert.SerializeObject(url, Formatting.Indented));
 
-            Assert.Equal("/users/100", path);
-            Assert.Null(query);
+            Assert.NotNull(url);
+            Assert.Equal("https://myapi.com/users/100", url);
         }
 
-        [Fact]
+      /*  [Fact]
         public void PostRequestDataGeneratorWithOneRequest()
         {
-            var requests = AddNewUserHttpRequest.Get();
+            var request = AddNewUserHttpRequest.Get();
             var replacementValues = new ReplacementValue[] {
                 new ReplacementValue(){
                         Key = "id",
@@ -60,22 +62,36 @@ namespace QAToolKit.Core.Test.HttpRequestTools
                     }
             };
 
-            var generator = new HttpRequestDataReplacer(requests, replacementValues);
+            var generator = new HttpRequestUrlGenerator(request, options =>
+            {
+                options.AddReplacementValues(new ReplacementValue[] {
+               new ReplacementValue(){
+                        Key = "id",
+                        Value = "100"
+                    },
+                new ReplacementValue(){
+                        Key = "name",
+                        Value = "Miha J."
+                    }
+                });
+            });
 
             var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
 
             _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
 
             Assert.Equal(@"{""id"":100,""name"":""Miha J.""}", (string)body);
-        }
+        }*/
 
-        [Fact]
+     /*   [Fact]
         public void ReplaceBodyTest_Successfull()
         {
             var content = File.ReadAllText("Assets/addPet.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
-            
-            var generator = new HttpRequestDataReplacer(requests.FirstOrDefault(), new ReplacementValue[] {
+
+            var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
+            {
+                options.AddReplacementValues(new ReplacementValue[] {
                 new ReplacementValue(){
                         Key = "id",
                         Value = "100"
@@ -88,6 +104,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
                         Key = "category",
                         Value = "{\"id\":1,\"name\":\"dog\"}"
                     }
+                });
             });
 
             var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
@@ -95,7 +112,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
 
             Assert.Equal(@"{""id"":100,""name"":""Miha J."",""Category"":{""id"":1,""name"":""dog""}}", (string)body);
-        }
+        }*/
 
         [Fact]
         public void ReplacePathTest_Successfull()
@@ -103,7 +120,9 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             var content = File.ReadAllText("Assets/getPetById.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
 
-            var generator = new HttpRequestDataReplacer(requests.FirstOrDefault(), new ReplacementValue[] {
+            var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
+            {
+                options.AddReplacementValues(new ReplacementValue[] {
                 new ReplacementValue(){
                         Key = "petId",
                         Value = "1000"
@@ -112,13 +131,14 @@ namespace QAToolKit.Core.Test.HttpRequestTools
                         Key = "name",
                         Value = "Miha J."
                     }
+                });
             });
 
-            var url = generator.ReplaceUrlParameters();
+            var url = generator.GetUrl();
 
             _logger.LogInformation(url.ToString());
 
-            Assert.Equal("/pet/1000", url.ToString());
+            Assert.Equal("https://petstore3.swagger.io/api/v3/pet/1000", url.ToString());
         }
 
         [Fact]
@@ -127,7 +147,9 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             var content = File.ReadAllText("Assets/getPetByIdAndStatus.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
 
-            var generator = new HttpRequestDataReplacer(requests.FirstOrDefault(), new ReplacementValue[] {
+            var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
+            {
+                options.AddReplacementValues(new ReplacementValue[] {
                 new ReplacementValue(){
                         Key = "petId",
                         Value = "1000"
@@ -136,13 +158,14 @@ namespace QAToolKit.Core.Test.HttpRequestTools
                         Key = "status",
                         Value = 2
                     }
+                });
             });
 
-            var url = generator.ReplaceUrlParameters();
+            var url = generator.GetUrl();
 
             _logger.LogInformation(url.ToString());
 
-            Assert.Equal("/pet/1000?status=2", url.ToString());
+            Assert.Equal("https://petstore3.swagger.io/api/v3/pet/1000?status=2", url.ToString());
         }
     }
 }

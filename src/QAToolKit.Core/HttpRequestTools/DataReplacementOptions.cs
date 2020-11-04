@@ -7,7 +7,7 @@ namespace QAToolKit.Core.HttpRequestTools
     /// <summary>
     /// HttpRequest Data replacer options
     /// </summary>
-    public class HttpRequestDataReplacerOptions
+    public class DataReplacementOptions
     {
         /// <summary>
         /// Key/value pairs of replacement values
@@ -19,7 +19,7 @@ namespace QAToolKit.Core.HttpRequestTools
         /// </summary>
         /// <param name="replacementValues"></param>
         /// <returns></returns>
-        public HttpRequestDataReplacerOptions AddReplacementValues(ReplacementValue[] replacementValues)
+        public DataReplacementOptions AddReplacementValues(ReplacementValue[] replacementValues)
         {
             ReplacementValues = replacementValues;
             return this;
