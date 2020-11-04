@@ -144,22 +144,22 @@ namespace QAToolKit.Core.HttpRequestTools
         internal string GetPath()
         {
             string path = _httpRequest.Path;
+
             if (_dataReplacerOptions.ReplacementValues != null)
             {
                 foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
                 {
                     var type = replacementValue.Value.GetType();
 
-                    if (path.Contains("{" + replacementValue.Key + "}") && type.Equals(typeof(string)))
+                    if (path.Contains("{" + replacementValue.Key + "}") && (type.Equals(typeof(string)) || type.IsPrimitive))
                     {
-                        path = path.Replace("{" + replacementValue.Key + "}", (string)replacementValue.Value);
+                        path = path.Replace("{" + replacementValue.Key + "}", replacementValue.Value.ToString());
                     }
                 }
             }
 
             if (path.StartsWith("/"))
             {
-                //TODO fill up the examples value of parameters if any
                 path = path.Substring(1, path.Length - 1);
             }
 
