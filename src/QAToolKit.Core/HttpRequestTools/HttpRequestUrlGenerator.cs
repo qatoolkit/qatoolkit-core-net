@@ -27,7 +27,7 @@ namespace QAToolKit.Core.HttpRequestTools
         }
 
         /// <summary>
-        /// Get url with parameter placeholders
+        /// Get url with parameters
         /// </summary>
         /// <returns></returns>
         public string GetUrl()
@@ -45,113 +45,60 @@ namespace QAToolKit.Core.HttpRequestTools
             }
 
             /// PATH
-            string rawPath;
-            if (_httpRequest.Path.StartsWith("/"))
-            {
-                //TODO fill up the examples value of parameters if any
-                rawPath = _httpRequest.Path.Substring(1, _httpRequest.Path.Length - 1);
-            }
-            else
-            {
-                //TODO fill up the examples value of parameters if any
-                rawPath = _httpRequest.Path;
-            }
-
-            if (_dataReplacerOptions.ReplacementValues != null)
-            {
-                rawPath = ReplacePathParameters(rawPath);
-            }
-
+            string rawPath = GetPath();
             url.Append(rawPath);
 
 
             ///QUERY
             var rawQuery = GetQuery();
-
-            if (_dataReplacerOptions.ReplacementValues != null)
-            {
-                rawQuery = ReplaceQueryParameters();
-                url.Append(rawQuery);
-            }
-            else
-            {
-                url.Append(rawQuery);
-            }
+            url.Append(rawQuery);
 
             return $"{url}";
         }
 
+        /// <summary>
+        /// Get query parameters
+        /// </summary>
+        /// <returns></returns>
         private string GetQuery()
         {
-            var query = new StringBuilder();
+            var queryParts = new List<string>();
+
             foreach (var parameter in _httpRequest.Parameters.Where(kind => kind.Location == Location.Query))
             {
-                query.Append($"{parameter.Name}={{{parameter.Name}}}");
-
-                if (!query.ToString().StartsWith("?"))
+                if (parameter.Value != null && !HasReplaceValue(parameter.Name))
                 {
-                    return $"?{query}";
+                    queryParts.Add($"{parameter.Name}={parameter.Value}");
                 }
                 else
                 {
-                    return $"{query}";
-                }
-            }
-
-            return String.Empty;
-        }
-
-        /// <summary>
-        /// Replace Url path parameters
-        /// </summary>
-        /// <returns></returns>
-        internal string ReplacePathParameters(string path)
-        {
-            foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
-            {
-                var type = replacementValue.Value.GetType();
-
-                if (path.Contains("{" + replacementValue.Key + "}") && type.Equals(typeof(string)))
-                {
-                    path = path.Replace("{" + replacementValue.Key + "}", (string)replacementValue.Value);
-                }
-            }
-
-            return path;
-        }
-
-        /// <summary>
-        /// Replace Query parameters
-        /// </summary>
-        /// <returns></returns>
-        internal string ReplaceQueryParameters()
-        {
-            var queryParts = new List<string>();
-            foreach (var parameter in _httpRequest.Parameters.Where(kind => kind.Location == Location.Query))
-            {
-                foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
-                {
-                    if (parameter.Name.ToLower() == replacementValue.Key.ToLower())
+                    if (_dataReplacerOptions.ReplacementValues != null)
                     {
-                        var type = replacementValue.Value.GetType();
+                        foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
+                        {
+                            if (parameter.Name.ToLower() == replacementValue.Key.ToLower())
+                            {
+                                var type = replacementValue.Value.GetType();
 
-                        if (type.Equals(typeof(Dictionary<string, string>)))
-                        {
-                            queryParts.Add(GenerateQueryParameters((Dictionary<string, string>)replacementValue.Value));
-                        }
-                        else if (type.Equals(typeof(string[])))
-                        {
-                            var tmp = (string[])replacementValue.Value;
-                            queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
-                        }
-                        else if (type.Equals(typeof(int[])))
-                        {
-                            var tmp = (int[])replacementValue.Value;
-                            queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
-                        }
-                        else
-                        {
-                            queryParts.Add($"{parameter.Name}={replacementValue.Value}");
+                                if (type.Equals(typeof(Dictionary<string, string>)))
+                                {
+                                    queryParts.Add(GenerateQueryParameters((Dictionary<string, string>)replacementValue.Value));
+                                }
+                                else if (type.Equals(typeof(string[])))
+                                {
+                                    var tmp = (string[])replacementValue.Value;
+                                    queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
+                                }
+                                else if (type.Equals(typeof(int[])))
+                                {
+                                    var tmp = (int[])replacementValue.Value;
+                                    queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
+                                }
+                                else
+                                {
+                                    queryParts.Add($"{parameter.Name}={replacementValue.Value}");
+                                }
+                            }
                         }
                     }
                 }
@@ -172,6 +119,51 @@ namespace QAToolKit.Core.HttpRequestTools
             {
                 return $"{query}";
             }
+        }
+
+        private bool HasReplaceValue(string valueName)
+        {
+            if (_dataReplacerOptions.ReplacementValues != null)
+            {
+                foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
+                {
+                    if (valueName.ToLower() == replacementValue.Key.ToLower())
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Replace Url path parameters
+        /// </summary>
+        /// <returns></returns>
+        internal string GetPath()
+        {
+            string path = _httpRequest.Path;
+            if (_dataReplacerOptions.ReplacementValues != null)
+            {
+                foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
+                {
+                    var type = replacementValue.Value.GetType();
+
+                    if (path.Contains("{" + replacementValue.Key + "}") && type.Equals(typeof(string)))
+                    {
+                        path = path.Replace("{" + replacementValue.Key + "}", (string)replacementValue.Value);
+                    }
+                }
+            }
+
+            if (path.StartsWith("/"))
+            {
+                //TODO fill up the examples value of parameters if any
+                path = path.Substring(1, path.Length - 1);
+            }
+
+            return path;
         }
 
         private string GenerateQueryParameters(Dictionary<string, string> keyValuePairs)

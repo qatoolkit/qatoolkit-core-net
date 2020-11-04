@@ -8,11 +8,11 @@
 It contains general interfaces and models for QAToolKit libraries, but also core logic and functions to modify `HttpRequest` object.
 
 ## 1. HttpRequest functions
-HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core` library contains `HttpRequestTools` which gives us functions to manipulate the HttpRequest object.
+HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core` library contains `HttpRequestTools` which can manipulate the HttpRequest object.
 
-Currently there are `HttpRequestDataReplacer` and `HttpRequestDataGenerator` which is still experimental.
+Currently there are `HttpRequestUrlGenerator`, `HttpRequestBodyGenerator` and `HttpRequestHeaderGenerator`.
 
-### 1.1. HttpRequestDataReplacer
+### 1.1. HttpRequestUrlGenerator
 This is a method that will accept key/value pairs for replacement of placeholders in the `HttpRequest` object.
 
 ```csharp
@@ -35,6 +35,8 @@ In other words, if you have a test API endpoint like this: https://api.demo.com/
 
 That, does not stop there, you can also populate JSON request bodies.
 
+### 1.2. HttpRequestBodyGenerator
+
 For example if you set the replacement value to stringified json:
 
 ```csharp
@@ -51,12 +53,9 @@ than the parent model object will be replaced with the stringified json above.
 What happend behind the curtains, the model proxy class is generated, which is then used to Deserialized the JSON into the object.
 `HttpRequest` list is then scanned and values are properly replaced.
 
+### 1.3. HttpRequestHeaderGenerator
 
-### 1.2. HttpRequestDataGenerator - Experimental
-##### !! EXPERIMENTAL !!
-This is an experimental feature. It will generate the missing data in the `List<HttpRequest>` object from the swagger models, uri and query parameters.
-
-Wait for official announcement to use this feature.
+TODO
 
 # License
 

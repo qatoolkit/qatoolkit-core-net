@@ -29,6 +29,9 @@
     <None Update="Assets\addPet.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\GetAllBikes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\getPetByIdAndStatus.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
