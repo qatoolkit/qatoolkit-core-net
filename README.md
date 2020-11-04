@@ -3,7 +3,7 @@
 ![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core)
 
 ## Description
-`QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit.
+`QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit. It's normally not used alone but is a dependency for other QAToolKit libraries.
 
 It contains general interfaces and models for QAToolKit libraries, but also core logic and functions to modify `HttpRequest` object.
 
@@ -55,7 +55,12 @@ What happend behind the curtains, the model proxy class is generated, which is t
 
 ### 1.3. HttpRequestHeaderGenerator
 
-TODO
+To-do
+
+## 2. To-do
+
+- `HttpRequestHeaderGenerator` is missing implementation.
+- `HttpRequestBodyGenerator` need to cover the whole spectrum of object tipes. Currently it's missing arrays, and nested objects. It's on the priority list.
 
 # License
 
