@@ -63,6 +63,14 @@ namespace QAToolKit.Core.HttpRequestTools
         private string GenerateBodyJsonString(RequestBody requestBody)
         {
             JObject obj = new JObject();
+
+            var foundModel = _dataReplacerOptions.ReplacementValues.FirstOrDefault(v => v.Key.ToLower() == requestBody.Name.ToLower());
+
+            if(foundModel != null)
+            {
+                return JObject.Parse(foundModel.Value.ToString()).ToString(Formatting.None);
+            }
+
             foreach (var property in requestBody.Properties)
             {
                 var propertyType = GetPropertyType(property);
