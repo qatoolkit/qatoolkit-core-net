@@ -6,7 +6,6 @@ using QAToolKit.Core.Test.Fixtures;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -47,72 +46,72 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             Assert.Equal("https://myapi.com/users/100", url);
         }
 
-      /*  [Fact]
-        public void PostRequestDataGeneratorWithOneRequest()
-        {
-            var request = AddNewUserHttpRequest.Get();
-            var replacementValues = new ReplacementValue[] {
-                new ReplacementValue(){
-                        Key = "id",
-                        Value = "100"
-                    },
-                new ReplacementValue(){
-                        Key = "name",
-                        Value = "Miha J."
-                    }
-            };
+        /*  [Fact]
+          public void PostRequestDataGeneratorWithOneRequest()
+          {
+              var request = AddNewUserHttpRequest.Get();
+              var replacementValues = new ReplacementValue[] {
+                  new ReplacementValue(){
+                          Key = "id",
+                          Value = "100"
+                      },
+                  new ReplacementValue(){
+                          Key = "name",
+                          Value = "Miha J."
+                      }
+              };
 
-            var generator = new HttpRequestUrlGenerator(request, options =>
-            {
-                options.AddReplacementValues(new ReplacementValue[] {
-               new ReplacementValue(){
-                        Key = "id",
-                        Value = "100"
-                    },
-                new ReplacementValue(){
-                        Key = "name",
-                        Value = "Miha J."
-                    }
-                });
-            });
+              var generator = new HttpRequestUrlGenerator(request, options =>
+              {
+                  options.AddReplacementValues(new ReplacementValue[] {
+                 new ReplacementValue(){
+                          Key = "id",
+                          Value = "100"
+                      },
+                  new ReplacementValue(){
+                          Key = "name",
+                          Value = "Miha J."
+                      }
+                  });
+              });
 
-            var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
+              var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
 
-            _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
+              _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
 
-            Assert.Equal(@"{""id"":100,""name"":""Miha J.""}", (string)body);
-        }*/
+              Assert.Equal(@"{""id"":100,""name"":""Miha J.""}", (string)body);
+          }*/
 
-     /*   [Fact]
-        public void ReplaceBodyTest_Successfull()
-        {
-            var content = File.ReadAllText("Assets/addPet.json");
-            var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
+        /*   [Fact]
+           public void ReplaceBodyTest_Successfull()
+           {
+               var content = File.ReadAllText("Assets/addPet.json");
+               var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
 
-            var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
-            {
-                options.AddReplacementValues(new ReplacementValue[] {
-                new ReplacementValue(){
-                        Key = "id",
-                        Value = "100"
-                    },
-                new ReplacementValue(){
-                        Key = "name",
-                        Value = "Miha J."
-                    },
-                new ReplacementValue(){
-                        Key = "category",
-                        Value = "{\"id\":1,\"name\":\"dog\"}"
-                    }
-                });
-            });
+               var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
+               {
+                   options.AddReplacementValues(new ReplacementValue[] {
+                   new ReplacementValue(){
+                           Key = "id",
+                           Value = "100"
+                       },
+                   new ReplacementValue(){
+                           Key = "name",
+                           Value = "Miha J."
+                       },
+                   new ReplacementValue(){
+                           Key = "category",
+                           Value = "{\"id\":1,\"name\":\"dog\"}"
+                       }
+                   });
+               });
 
-            var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
+               var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
 
-            _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
+               _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
 
-            Assert.Equal(@"{""id"":100,""name"":""Miha J."",""Category"":{""id"":1,""name"":""dog""}}", (string)body);
-        }*/
+               Assert.Equal(@"{""id"":100,""name"":""Miha J."",""Category"":{""id"":1,""name"":""dog""}}", (string)body);
+           }*/
 
         [Fact]
         public void ReplacePathTest_Successfull()

@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -86,7 +85,8 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             var content = File.ReadAllText("Assets/GetAllBikes.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
 
-            var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options => {
+            var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
+            {
                 options.AddReplacementValues(new ReplacementValue[] {
                     new ReplacementValue(){
                         Key = "api-version",
@@ -109,7 +109,8 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             var content = File.ReadAllText("Assets/GetAllBikes.json");
             var requests = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
 
-            var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options => {
+            var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
+            {
                 options.AddReplacementValues(new ReplacementValue[] {
                     new ReplacementValue(){
                         Key = "api-version",

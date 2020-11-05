@@ -4,9 +4,7 @@ using QAToolKit.Core.Exceptions;
 using QAToolKit.Core.Models;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace QAToolKit.Core.HttpRequestTools
 {
@@ -67,7 +65,7 @@ namespace QAToolKit.Core.HttpRequestTools
 
             var foundModel = _dataReplacerOptions.ReplacementValues.FirstOrDefault(v => v.Key.ToLower() == requestBody.Name.ToLower());
 
-            if(foundModel != null)
+            if (foundModel != null)
             {
                 return JObject.Parse(foundModel.Value.ToString()).ToString(Formatting.None);
             }
