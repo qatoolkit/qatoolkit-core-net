@@ -2,11 +2,65 @@
 ![.NET Core](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)
 ![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core)
 
-`QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit.
+## Description
+`QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit. It's normally not used alone but is a dependency for other QAToolKit libraries.
 
-It contains general interfaces and models for QAToolKit libraries.
+It contains general interfaces and models for QAToolKit libraries, but also core logic and functions to modify `HttpRequest` object.
 
-Please note, that the library is in `beta`.
+## 1. HttpRequest functions
+HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core` library contains `HttpRequestTools` which can manipulate the HttpRequest object.
+
+Currently there are `HttpRequestUrlGenerator`, `HttpRequestBodyGenerator` and `HttpRequestHeaderGenerator`.
+
+### 1.1. HttpRequestUrlGenerator
+This is a method that will accept key/value pairs for replacement of placeholders in the `HttpRequest` object.
+
+```csharp
+options.AddReplacementValues(new ReplacementValue[] {
+new ReplacementValue()
+    {
+        Key = "version",
+        Value = "1"
+    },
+    {
+        Key = "parentId",
+        Value = "4"
+    }
+});
+```
+
+In the example above we say: "Replace `{version}` and {parentId} placeholders in Path and URL parameters and JSON body models."
+
+In other words, if you have a test API endpoint like this: https://api.demo.com/v{version}/categories?parent={parentId} that will be set to https://api.demo.com/v1/categories?parent=4.
+
+That, does not stop there, you can also populate JSON request bodies.
+
+### 1.2. HttpRequestBodyGenerator
+
+For example if you set the replacement value to stringified json:
+
+```csharp
+options.AddReplacementValues(new ReplacementValue[] {
+new ReplacementValue()
+    {
+        Key = "parent",
+        Value = "{\"id\":\"100\",\"name\":\"Parent Name\"}"
+    }
+});
+```
+than the parent model object will be replaced with the stringified json above.
+
+What happend behind the curtains, the model proxy class is generated, which is then used to Deserialized the JSON into the object.
+`HttpRequest` list is then scanned and values are properly replaced.
+
+### 1.3. HttpRequestHeaderGenerator
+
+To-do
+
+## 2. To-do
+
+- `HttpRequestHeaderGenerator` is missing implementation.
+- `HttpRequestBodyGenerator` need to cover the whole spectrum of object tipes. Currently it's missing arrays, and nested objects. It's on the priority list.
 
 # License
 

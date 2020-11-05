@@ -10,8 +10,8 @@
         /// </summary>
         public string Key { get; set; }
         /// <summary>
-        /// Replacement value
+        /// Replacement value object
         /// </summary>
-        public string Value { get; set; }
+        public object Value { get; set; }
     }
 }
