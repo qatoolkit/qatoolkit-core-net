@@ -1,0 +1,614 @@
+[
+  {
+    "BasePath": "https://petstore3.swagger.io/api/v3",
+    "Path": "/pet",
+    "OperationId": "addPet",
+    "Method": {
+      "Method": "POST"
+    },
+    "Summary": "Add a new pet to the store",
+    "Description": "Add a new pet to the store",
+    "Tags": [
+      "pet"
+    ],
+    "Parameters": [],
+    "RequestBodies": [
+      {
+        "Name": "Pet",
+        "Required": true,
+        "ContentType": 0,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": null,
+            "Format": "int64",
+            "Type": "integer",
+            "Value": "999",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": "my pet 999",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "Category",
+            "Description": null,
+            "Format": null,
+            "Type": "object",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "id",
+                "Description": null,
+                "Format": "int64",
+                "Type": "integer",
+                "Value": "1",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": "name",
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "dogs",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "photoUrls",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "tags",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "Tag",
+                "Description": null,
+                "Format": null,
+                "Type": "object",
+                "Value": null,
+                "Required": false,
+                "Properties": [
+                  {
+                    "Name": "id",
+                    "Description": null,
+                    "Format": "int64",
+                    "Type": "integer",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  },
+                  {
+                    "Name": "name",
+                    "Description": null,
+                    "Format": null,
+                    "Type": "string",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "status",
+            "Description": "pet status in the store",
+            "Format": null,
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "available",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "pending",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "sold",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Name": "Pet",
+        "Required": true,
+        "ContentType": 1,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": null,
+            "Format": "int64",
+            "Type": "integer",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "Category",
+            "Description": null,
+            "Format": null,
+            "Type": "object",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "id",
+                "Description": null,
+                "Format": "int64",
+                "Type": "integer",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": "name",
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "photoUrls",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "tags",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "Tag",
+                "Description": null,
+                "Format": null,
+                "Type": "object",
+                "Value": null,
+                "Required": false,
+                "Properties": [
+                  {
+                    "Name": "id",
+                    "Description": null,
+                    "Format": "int64",
+                    "Type": "integer",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  },
+                  {
+                    "Name": "name",
+                    "Description": null,
+                    "Format": null,
+                    "Type": "string",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "status",
+            "Description": "pet status in the store",
+            "Format": null,
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "available",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "pending",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "sold",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Name": "Pet",
+        "Required": true,
+        "ContentType": 2,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": null,
+            "Format": "int64",
+            "Type": "integer",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "Category",
+            "Description": null,
+            "Format": null,
+            "Type": "object",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "id",
+                "Description": null,
+                "Format": "int64",
+                "Type": "integer",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": "name",
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "photoUrls",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "tags",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "Tag",
+                "Description": null,
+                "Format": null,
+                "Type": "object",
+                "Value": null,
+                "Required": false,
+                "Properties": [
+                  {
+                    "Name": "id",
+                    "Description": null,
+                    "Format": "int64",
+                    "Type": "integer",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  },
+                  {
+                    "Name": "name",
+                    "Description": null,
+                    "Format": null,
+                    "Type": "string",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "status",
+            "Description": "pet status in the store",
+            "Format": null,
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "available",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "pending",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "sold",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Responses": [
+      {
+        "StatusCode": 200,
+        "Type": 2,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": null,
+            "Format": "int64",
+            "Type": "integer",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "Category",
+            "Description": null,
+            "Format": null,
+            "Type": "object",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "id",
+                "Description": null,
+                "Format": "int64",
+                "Type": "integer",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": "name",
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "photoUrls",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "tags",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "Tag",
+                "Description": null,
+                "Format": null,
+                "Type": "object",
+                "Value": null,
+                "Required": false,
+                "Properties": [
+                  {
+                    "Name": "id",
+                    "Description": null,
+                    "Format": "int64",
+                    "Type": "integer",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  },
+                  {
+                    "Name": "name",
+                    "Description": null,
+                    "Format": null,
+                    "Type": "string",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "status",
+            "Description": "pet status in the store",
+            "Format": null,
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "available",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "pending",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "sold",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StatusCode": 405,
+        "Type": 1,
+        "Properties": null
+      }
+    ],
+    "TestTypes": [],
+    "AuthenticationTypes": []
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "BasePath": "https://petstore3.swagger.io/api/v3",
+    "Path": "/pet/{petId}",
+    "OperationId": "getPetById",
+    "Method": {
+      "Method": "GET"
+    },
+    "Summary": "Find pet by ID",
+    "Description": "Returns a single pet",
+    "Tags": [
+      "pet"
+    ],
+    "Parameters": [
+      {
+        "Name": "petId",
+        "Type": "integer",
+        "Nullable": false,
+        "Value": null,
+        "Required": true,
+        "Location": 1
+      }
+    ],
+    "RequestBodies": [],
+    "Responses": [
+      {
+        "StatusCode": 200,
+        "Type": 2,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": null,
+            "Format": "int64",
+            "Type": "integer",
+            "Value": "10",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": "doggie",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "Category",
+            "Description": null,
+            "Format": null,
+            "Type": "object",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "id",
+                "Description": null,
+                "Format": "int64",
+                "Type": "integer",
+                "Value": "1",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": "name",
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "Dogs",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "photoUrls",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": null,
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          },
+          {
+            "Name": "tags",
+            "Description": null,
+            "Format": null,
+            "Type": "array",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": "Tag",
+                "Description": null,
+                "Format": null,
+                "Type": "object",
+                "Value": null,
+                "Required": false,
+                "Properties": [
+                  {
+                    "Name": "id",
+                    "Description": null,
+                    "Format": "int64",
+                    "Type": "integer",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  },
+                  {
+                    "Name": "name",
+                    "Description": null,
+                    "Format": null,
+                    "Type": "string",
+                    "Value": null,
+                    "Required": false,
+                    "Properties": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "status",
+            "Description": "pet status in the store",
+            "Format": null,
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "available",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "pending",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "sold",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StatusCode": 400,
+        "Type": 1,
+        "Properties": null
+      },
+      {
+        "StatusCode": 404,
+        "Type": 1,
+        "Properties": null
+      }
+    ],
+    "TestTypes": [],
+    "AuthenticationTypes": []
+  }
+]
