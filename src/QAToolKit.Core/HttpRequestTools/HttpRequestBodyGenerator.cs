@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using QAToolKit.Core.Exceptions;
 using QAToolKit.Core.Models;
 using System;
 using System.Collections;
@@ -115,7 +116,7 @@ namespace QAToolKit.Core.HttpRequestTools
                     }
                     else
                     {
-                        throw new Exception($"{property.Type} not valid type.");
+                        throw new QAToolKitCoreException($"{property.Type} not valid a type.");
                     }
                     //}
                 }
@@ -158,7 +159,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 case "enum":
                     return typeof(Enum);
                 default:
-                    throw new Exception($"{property.Type} not valid type.");
+                    throw new QAToolKitCoreException($"{property.Type} not a valid type.");
             }
         }
     }
