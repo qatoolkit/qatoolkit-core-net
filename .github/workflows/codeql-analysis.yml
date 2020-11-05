@@ -10,7 +10,7 @@
 # supported CodeQL languages.
 # ******** NOTE ********
 
-name: "CodeQL"
+name: "CodeQL Analyze"
 
 on:
   pull_request:
@@ -20,7 +20,6 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
     runs-on: ubuntu-latest
 
     strategy:
