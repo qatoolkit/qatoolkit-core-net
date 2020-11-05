@@ -97,6 +97,11 @@ namespace QAToolKit.Core.HttpRequestTools
                             }
                         }
                     }
+                    else
+                    {
+                        if (parameter.Required)
+                            queryParts.Add($"{parameter.Name}={{{parameter.Name}}}");
+                    }
                 }
             }
 

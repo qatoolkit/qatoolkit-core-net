@@ -43,7 +43,7 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault());
             _logger.LogInformation(urlGenerator.GetUrl());
 
-            Assert.Equal("https://petstore3.swagger.io/api/v3/pet/{petId}", urlGenerator.GetUrl());
+            Assert.Equal("https://petstore3.swagger.io/api/v3/pet/{petId}?status={status}", urlGenerator.GetUrl());
         }
 
         [Fact]
@@ -87,14 +87,14 @@ namespace QAToolKit.Core.Test.HttpRequestTools
 
             var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
             {
-                options.AddReplacementValues(new ReplacementValue[] {
-                    new ReplacementValue(){
-                        Key = "api-version",
-                        Value = "2"
+                options.AddReplacementValues(new Dictionary<string, object> {
+                    {
+                     "bicycleType",
+                      "1"
                     },
-                    new ReplacementValue(){
-                        Key = "bicycleType",
-                        Value = "1"
+                    {
+                     "api-version",
+                      "2"
                     }
                 });
             });
@@ -111,10 +111,10 @@ namespace QAToolKit.Core.Test.HttpRequestTools
 
             var urlGenerator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
             {
-                options.AddReplacementValues(new ReplacementValue[] {
-                    new ReplacementValue(){
-                        Key = "api-version",
-                        Value = "2"
+                options.AddReplacementValues(new Dictionary<string, object> {
+                    {
+                     "api-version",
+                      "2"
                     }
                 });
             });

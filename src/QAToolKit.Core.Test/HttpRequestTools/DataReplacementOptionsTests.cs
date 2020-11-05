@@ -1,5 +1,6 @@
 ﻿using QAToolKit.Core.HttpRequestTools;
 using QAToolKit.Core.Models;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -11,22 +12,25 @@ namespace QAToolKit.Core.Test.HttpRequestTools
         public void SwaggerAddReplacementValuesTest_Successful()
         {
             var options = new DataReplacementOptions();
-            options.AddReplacementValues(new ReplacementValue[] {
-                new ReplacementValue() {
-                    Key = "userId",
-                    Value = "1"
+            options.AddReplacementValues(new Dictionary<string, object> {
+                {
+                    "userId",
+                    "1"
                 },
-                new ReplacementValue() {
-                    Key = "roleId",
-                    Value = "100"
+               {
+                    "roleId",
+                    "100"
                 }
             });
 
             Assert.Equal(2, options.ReplacementValues.Count());
-            Assert.Equal("userId", options.ReplacementValues[0].Key);
-            Assert.Equal("1", options.ReplacementValues[0].Value);
-            Assert.Equal("roleId", options.ReplacementValues[1].Key);
-            Assert.Equal("100", options.ReplacementValues[1].Value);
+            Assert.True(options.ReplacementValues.ContainsKey("userId"));
+            options.ReplacementValues.TryGetValue("userId", out var val1);
+            Assert.Equal("1", val1);
+
+            Assert.True(options.ReplacementValues.ContainsKey("roleId"));
+            options.ReplacementValues.TryGetValue("roleId", out var val2);
+            Assert.Equal("100", val2);
         }
     }
 }
