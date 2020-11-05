@@ -34,7 +34,6 @@ namespace QAToolKit.Core.HttpRequestTools
         {
             var url = new StringBuilder();
 
-            ///BASE PATH
             if (!_httpRequest.BasePath.EndsWith("/"))
             {
                 url.Append($"{_httpRequest.BasePath}/");
@@ -44,12 +43,9 @@ namespace QAToolKit.Core.HttpRequestTools
                 url.Append(_httpRequest.BasePath);
             }
 
-            /// PATH
             string rawPath = GetPath();
             url.Append(rawPath);
 
-
-            ///QUERY
             var rawQuery = GetQuery();
             url.Append(rawQuery);
 
