@@ -26,16 +26,16 @@ namespace QAToolKit.Core.Test.HttpRequestTools
         public void GetRequestDataGeneratorWithOneRequest()
         {
             var request = GetUserByIdHttpRequest.Get();
-            var replacementValues = new ReplacementValue[] {
-            new ReplacementValue(){
-                    Key = "userId",
-                    Value = "100"
-                }
-            };
+
 
             var generator = new HttpRequestUrlGenerator(request, options =>
             {
-                options.AddReplacementValues(replacementValues);
+                options.AddReplacementValues(new Dictionary<string, object> {
+                    {
+                     "userId",
+                      "100"
+                    }
+                });
             });
 
             var url = generator.GetUrl();
@@ -121,14 +121,14 @@ namespace QAToolKit.Core.Test.HttpRequestTools
 
             var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
             {
-                options.AddReplacementValues(new ReplacementValue[] {
-                new ReplacementValue(){
-                        Key = "petId",
-                        Value = "1000"
+                options.AddReplacementValues(new Dictionary<string, object> {
+                    {
+                     "petId",
+                      "1000"
                     },
-                new ReplacementValue(){
-                        Key = "name",
-                        Value = "Miha J."
+                    {
+                     "name",
+                      "Miha J."
                     }
                 });
             });
@@ -148,14 +148,14 @@ namespace QAToolKit.Core.Test.HttpRequestTools
 
             var generator = new HttpRequestUrlGenerator(requests.FirstOrDefault(), options =>
             {
-                options.AddReplacementValues(new ReplacementValue[] {
-                new ReplacementValue(){
-                        Key = "petId",
-                        Value = "1000"
+                options.AddReplacementValues(new Dictionary<string, object> {
+                    {
+                     "petId",
+                      "1000"
                     },
-                new ReplacementValue(){
-                        Key = "status",
-                        Value = 2
+                    {
+                       "status",
+                        2
                     }
                 });
             });

@@ -63,11 +63,11 @@ namespace QAToolKit.Core.HttpRequestTools
         {
             JObject obj = new JObject();
 
-            var foundModel = _dataReplacerOptions.ReplacementValues.FirstOrDefault(v => v.Key.ToLower() == requestBody.Name.ToLower());
+            var foundModel = _dataReplacerOptions.ReplacementValues.TryGetValue(requestBody.Name, out object modelValue);
 
-            if (foundModel != null)
+            if (foundModel)
             {
-                return JObject.Parse(foundModel.Value.ToString()).ToString(Formatting.None);
+                return JObject.Parse(modelValue.ToString()).ToString(Formatting.None);
             }
 
             foreach (var property in requestBody.Properties)
@@ -76,20 +76,20 @@ namespace QAToolKit.Core.HttpRequestTools
                 var propertyName = GetPropertyName(property);
                 if (IsSimple(propertyType))
                 {
-                    var value = _dataReplacerOptions.ReplacementValues.FirstOrDefault(v => v.Key.ToLower() == property.Name.ToLower());
+                    var valueFound = _dataReplacerOptions.ReplacementValues.TryGetValue(property.Name, out object propertyValue);
 
-                    if (value == null)
+                    if (valueFound)
                     {
-                        obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
+                        obj.Add(new JProperty(propertyName, Convert.ChangeType(propertyValue, propertyType)));
                     }
                     else
                     {
-                        obj.Add(new JProperty(propertyName, Convert.ChangeType(value.Value, propertyType)));
+                        obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
                     }
                 }
                 else
                 {
-                    var value = _dataReplacerOptions.ReplacementValues.FirstOrDefault(v => v.Key.ToLower() == property.Name.ToLower());
+                    var valueFound = _dataReplacerOptions.ReplacementValues.TryGetValue(property.Name, out object propertyValue);
 
                     //TODO
                     //if (property.Required)
@@ -97,19 +97,19 @@ namespace QAToolKit.Core.HttpRequestTools
                     if (propertyType == typeof(IList))
                     {
                         //obj.Add(propertyName, new JArray(new JValue("demo")));
-                        if (value != null)
-                            obj.Add(propertyName, JObject.Parse(value.Value.ToString()));
+                        if (valueFound)
+                            obj.Add(propertyName, JObject.Parse(propertyValue.ToString()));
                     }
                     else if (propertyType == typeof(object))
                     {
-                        if (value != null)
-                            obj.Add(propertyName, JObject.Parse(value.Value.ToString()));
+                        if (valueFound)
+                            obj.Add(propertyName, JObject.Parse(propertyValue.ToString()));
                         //obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
                     }
                     else if (propertyType == typeof(Enum))
                     {
-                        if (value != null)
-                            obj.Add(propertyName, JObject.Parse(value.Value.ToString()));
+                        if (valueFound)
+                            obj.Add(propertyName, JObject.Parse(propertyValue.ToString()));
                         //obj.Add(new JProperty(propertyName, Convert.ChangeType(property.Value, propertyType)));
                     }
                     else
