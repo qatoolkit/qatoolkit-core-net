@@ -1,5 +1,4 @@
-﻿using QAToolKit.Core.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("QAToolKit.Core.Test")]
@@ -13,7 +12,7 @@ namespace QAToolKit.Core.HttpRequestTools
         /// <summary>
         /// Key/value pairs of replacement values
         /// </summary>
-        internal Dictionary<string,object> ReplacementValues { get; private set; }
+        internal Dictionary<string, object> ReplacementValues { get; private set; }
 
         /// <summary>
         /// Use replacement values
