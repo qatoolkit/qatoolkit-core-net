@@ -1,4 +1,5 @@
-﻿using QAToolKit.Core.Models;
+﻿using QAToolKit.Core.Helpers;
+using QAToolKit.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,30 +71,29 @@ namespace QAToolKit.Core.HttpRequestTools
                 {
                     if (_dataReplacerOptions.ReplacementValues != null)
                     {
-                        foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
-                        {
-                            if (parameter.Name.ToLower() == replacementValue.Key.ToLower())
-                            {
-                                var type = replacementValue.Value.GetType();
+                        var replacementValue = _dataReplacerOptions.ReplacementValues.GetValue(parameter.Name);
 
-                                if (type.Equals(typeof(Dictionary<string, string>)))
-                                {
-                                    queryParts.Add(GenerateQueryParameters((Dictionary<string, string>)replacementValue.Value));
-                                }
-                                else if (type.Equals(typeof(string[])))
-                                {
-                                    var tmp = (string[])replacementValue.Value;
-                                    queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
-                                }
-                                else if (type.Equals(typeof(int[])))
-                                {
-                                    var tmp = (int[])replacementValue.Value;
-                                    queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
-                                }
-                                else
-                                {
-                                    queryParts.Add($"{parameter.Name}={replacementValue.Value}");
-                                }
+                        if (replacementValue != null)
+                        {
+                            var type = replacementValue.GetType();
+
+                            if (type.Equals(typeof(Dictionary<string, string>)))
+                            {
+                                queryParts.Add(GenerateQueryParameters((Dictionary<string, string>)replacementValue));
+                            }
+                            else if (type.Equals(typeof(string[])))
+                            {
+                                var tmp = (string[])replacementValue;
+                                queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
+                            }
+                            else if (type.Equals(typeof(int[])))
+                            {
+                                var tmp = (int[])replacementValue;
+                                queryParts.Add($"{string.Join("&", tmp.Select(item => $"{parameter.Name}={item}"))}");
+                            }
+                            else
+                            {
+                                queryParts.Add($"{parameter.Name}={replacementValue}");
                             }
                         }
                     }
@@ -126,13 +126,7 @@ namespace QAToolKit.Core.HttpRequestTools
         {
             if (_dataReplacerOptions.ReplacementValues != null)
             {
-                foreach (var replacementValue in _dataReplacerOptions.ReplacementValues)
-                {
-                    if (valueName.ToLower() == replacementValue.Key.ToLower())
-                    {
-                        return true;
-                    }
-                }
+                return _dataReplacerOptions.ReplacementValues.KeyExists(valueName);
             }
 
             return false;
@@ -152,7 +146,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 {
                     var type = replacementValue.Value.GetType();
 
-                    if (path.Contains("{" + replacementValue.Key + "}") && (type.Equals(typeof(string)) || type.IsPrimitive))
+                    if (path.ContainsCaseInsensitive($"{{{replacementValue.Key}}}") && (type.Equals(typeof(string)) || type.IsPrimitive))
                     {
                         path = path.Replace("{" + replacementValue.Key + "}", replacementValue.Value.ToString());
                     }
