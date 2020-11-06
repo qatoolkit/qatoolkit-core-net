@@ -96,8 +96,15 @@ namespace QAToolKit.Core.Test.Helpers
             Assert.Equal(" \"Auth: ***\"", result);
         }
 
-
-
-
+        [Theory]
+        [InlineData("TEST STRING 1")]
+        [InlineData("test string 1")]
+        [InlineData("Test String 1")]
+        [InlineData("test String 1")]
+        [InlineData("Test StrIng 1")]
+        public void StringContainsCaseInsensitive_Success(string input)
+        {
+            Assert.True(input.ContainsCaseInsensitive("Test STrinG 1"));
+        }
     }
 }

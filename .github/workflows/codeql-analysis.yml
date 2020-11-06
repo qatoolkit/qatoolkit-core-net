@@ -10,20 +10,16 @@
 # supported CodeQL languages.
 # ******** NOTE ********
 
-name: "CodeQL"
+name: "CodeQL Analyze"
 
 on:
-  push:
-    branches: [ develop, main ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ develop ]
+    branches: [ develop, main ]
   schedule:
     - cron: '36 12 * * 3'
 
 jobs:
   analyze:
-    name: Analyze
     runs-on: ubuntu-latest
 
     strategy:

@@ -123,5 +123,17 @@ namespace QAToolKit.Core.Helpers
 
             return original;
         }
+
+        /// <summary>
+        /// Check if string contains string by ignoring case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="value"></param>
+        /// <param name="stringComparison"></param>
+        /// <returns></returns>
+        public static bool ContainsCaseInsensitive(this string text, string value, StringComparison stringComparison = StringComparison.CurrentCultureIgnoreCase)
+        {
+            return text.IndexOf(value, stringComparison) >= 0;
+        }
     }
 }

@@ -3,28 +3,26 @@
 ![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core)
 
 ## Description
-`QAToolKit.Core` is a .NET Standard 2.1 library, that contains core features of the ToolKit. It's normally not used alone but is a dependency for other QAToolKit libraries.
-
-It contains general interfaces and models for QAToolKit libraries, but also core logic and functions to modify `HttpRequest` object.
+`QAToolKit.Core` is a .NET Standard 2.1 library, that contains core objects and functions of the toolkit. It's normally not used as a standalone library but is a dependency for other QAToolKit libraries.
 
 ## 1. HttpRequest functions
 HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core` library contains `HttpRequestTools` which can manipulate the HttpRequest object.
 
-Currently there are `HttpRequestUrlGenerator`, `HttpRequestBodyGenerator` and `HttpRequestHeaderGenerator`.
+For example URL, header and Body generators: `HttpRequestUrlGenerator`, `HttpRequestBodyGenerator` and `HttpRequestHeaderGenerator`.
 
 ### 1.1. HttpRequestUrlGenerator
-This is a method that will accept key/value pairs for replacement of placeholders in the `HttpRequest` object.
+This is a method that will accept key/value pairs for replacement of placeholders in the `HttpRequest` object. Replacement object are stored in a dictionary, which `prevents mistakes with duplicated keys`.
+Also dictionary keys are case insensitive when looking for values to replace.
 
 ```csharp
-options.AddReplacementValues(new ReplacementValue[] {
-new ReplacementValue()
+options.AddReplacementValues(new Dictionary<string, object> {
     {
-        Key = "version",
-        Value = "1"
+        "version",
+        "1"
     },
     {
-        Key = "parentId",
-        Value = "4"
+        "parentId",
+        "4"
     }
 });
 ```
@@ -40,11 +38,14 @@ That, does not stop there, you can also populate JSON request bodies.
 For example if you set the replacement value to stringified json:
 
 ```csharp
-options.AddReplacementValues(new ReplacementValue[] {
-new ReplacementValue()
+options.AddReplacementValues(new Dictionary<string, object> {
     {
-        Key = "parent",
-        Value = "{\"id\":\"100\",\"name\":\"Parent Name\"}"
+        "id",
+        "100"
+    },
+    {
+        "category",
+        "{\"id\":1,\"name\":\"dog\"}"
     }
 });
 ```
