@@ -9,7 +9,7 @@
 		<IsPackable>true</IsPackable>
 		<PackageVersion>$(Version)</PackageVersion>
 		<PackageId>QAToolKit.Core</PackageId>
-		<Authors>QAToolKit</Authors>
+		<Authors>Miha Jakovac</Authors>
 		<Description>
 			QAToolKit Core library.
 		</Description>
