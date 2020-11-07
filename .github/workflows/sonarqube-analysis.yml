@@ -1,0 +1,29 @@
+name: Sonarqube Analyze
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarScanner for .NET Core with pull request decoration support
+      uses: highbyte/sonarscan-dotnet@1.0
+      with:
+        sonarProjectKey: qatoolkit_qatoolkit-core-net
+        sonarProjectName:  qatoolkit_qatoolkit-core-net
+        sonarOrganization: qatoolkit
+        dotnetBuildArguments: ./src/QAToolKit.Core/QAToolKit.Core.csproj
+        dotnetDisableTests: true
+        # Optional extra command arguments the the SonarScanner 'begin' command
+        sonarBeginArguments: /d:sonar.verbose="true" /d:sonar.language="cs"
+        sonarHostname: "https://sonarcloud.io"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
