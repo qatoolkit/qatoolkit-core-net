@@ -22,7 +22,7 @@ jobs:
         dotnetBuildArguments: ./src/QAToolKit.Core/QAToolKit.Core.csproj
         dotnetDisableTests: true
         # Optional extra command arguments the the SonarScanner 'begin' command
-        sonarBeginArguments: /d:sonar.login="${{ secrets.SONAR_TOKEN }}" -d:sonar.host.url="https://sonarcloud.io" -d:sonar.verbose="true" -d:sonar.language="cs"
+        sonarBeginArguments: /d:sonar.verbose="true" /d:sonar.language="cs"
         sonarHostname: "https://sonarcloud.io"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
