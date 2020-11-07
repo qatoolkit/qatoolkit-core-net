@@ -38,6 +38,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"qatoolkit_qatoolkit-core-net" /o:"qatoolkit" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.verbose=true
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"qatoolkit_qatoolkit-core-net" /o:"qatoolkit" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.verbose="true"
           dotnet build .
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
