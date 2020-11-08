@@ -11,7 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
     - name: SonarScanner for .NET Core with pull request decoration support
       uses: highbyte/sonarscan-dotnet@1.0
@@ -20,9 +19,8 @@ jobs:
         sonarProjectName:  qatoolkit_qatoolkit-core-net
         sonarOrganization: qatoolkit
         dotnetBuildArguments: ./src/QAToolKit.Core/QAToolKit.Core.csproj
-        dotnetDisableTests: true
-        # Optional extra command arguments the the SonarScanner 'begin' command
-        sonarBeginArguments: /d:sonar.verbose="true" /d:sonar.language="cs"
+        dotnetTestArguments: ./src/QAToolKit.Core.Test/QAToolKit.Core.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+        sonarBeginArguments: /d:sonar.verbose="true" /d:sonar.language="cs" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" /d:sonar.coverage.exclusions="**Tests.cs"
         sonarHostname: "https://sonarcloud.io"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
