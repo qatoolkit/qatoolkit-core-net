@@ -19,10 +19,10 @@ jobs:
         sonarProjectKey: qatoolkit_qatoolkit-core-net
         sonarProjectName:  qatoolkit_qatoolkit-core-net
         sonarOrganization: qatoolkit
-        dotnetBuildArguments: ./src/QAToolKit.Core/QAToolKit.Core.csproj
-        dotnetDisableTests: true
+        dotnetBuildArguments: ./src
+        dotnetTestArguments: ./src --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         # Optional extra command arguments the the SonarScanner 'begin' command
-        sonarBeginArguments: /d:sonar.verbose="true" /d:sonar.language="cs"
+        sonarBeginArguments: /d:sonar.verbose="true" /d:sonar.language="cs" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" /d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
         sonarHostname: "https://sonarcloud.io"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
