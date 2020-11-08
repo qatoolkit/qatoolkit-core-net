@@ -4,7 +4,7 @@ using Xunit;
 
 namespace QAToolKit.Core.Test.Helpers
 {
-    public class StringHelperTest
+    public class StringHelperTests
     {
         [Theory]
         [InlineData("test string")]
