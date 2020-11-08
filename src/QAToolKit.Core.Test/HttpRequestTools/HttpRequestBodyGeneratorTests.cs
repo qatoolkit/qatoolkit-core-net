@@ -6,6 +6,7 @@ using QAToolKit.Core.Test.Fixtures;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -187,6 +188,27 @@ namespace QAToolKit.Core.Test.HttpRequestTools
             _logger.LogInformation(url.ToString());
 
             Assert.Equal("https://petstore3.swagger.io/api/v3/pet/1000?status=2", url.ToString());
+        }
+
+        [Fact]
+        public void ReplaceHttpBodyForAddBikeAndOptionsTest_Successfull()
+        {
+
+            var content = File.ReadAllText("Assets/AddBike.json");
+            var httpRequest = JsonConvert.DeserializeObject<IList<HttpRequest>>(content);
+
+            var generator = new HttpRequestBodyGenerator(httpRequest.FirstOrDefault(), options =>
+            {
+                options.AddReplacementValues(new Dictionary<string, object> {
+                    {"Bicycle",@"{""id"":66,""name"":""my bike"",""brand"":""cannondale"",""BicycleType"":1}"}
+                });
+            });
+
+            var body = generator.ReplaceRequestBodyModel(ContentType.Enumeration.Json);
+
+            _logger.LogInformation(JsonConvert.SerializeObject(body, Formatting.Indented));
+
+            Assert.Equal(@"{""id"":66,""name"":""my bike"",""brand"":""cannondale"",""BicycleType"":1}", (string)body);
         }
     }
 }

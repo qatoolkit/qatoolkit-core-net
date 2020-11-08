@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QAToolKit.Core.Exceptions;
+using System;
 
 namespace QAToolKit.Core.Models
 {
@@ -76,7 +77,7 @@ namespace QAToolKit.Core.Models
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
+                throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported.");
             }
 
             return (value.ToLower()) switch
@@ -85,7 +86,7 @@ namespace QAToolKit.Core.Models
                 "application/xml" => Xml,
                 "application/x-www-form-urlencoded" => FormUrlEncoded,
                 "application/octet-stream" => OctetStream,
-                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+                _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
 
@@ -102,7 +103,7 @@ namespace QAToolKit.Core.Models
                 Enumeration.Xml => Xml,
                 Enumeration.FormUrlEncoded => FormUrlEncoded,
                 Enumeration.OctetStream => OctetStream,
-                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+                _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
 
@@ -124,7 +125,7 @@ namespace QAToolKit.Core.Models
                 "application/xml" => Enumeration.Xml,
                 "application/x-www-form-urlencoded" => Enumeration.FormUrlEncoded,
                 "application/octet-stream" => Enumeration.OctetStream,
-                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+                _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
 
@@ -137,7 +138,7 @@ namespace QAToolKit.Core.Models
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
+                throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported.");
             }
 
             return value switch
@@ -146,7 +147,7 @@ namespace QAToolKit.Core.Models
                 "application/xml" => Enumeration.Xml,
                 "application/x-www-form-urlencoded" => Enumeration.FormUrlEncoded,
                 "application/octet-stream" => Enumeration.OctetStream,
-                _ => throw new Exception($"{value} is invalid content type. Check the documentation which types are supported."),
+                _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
     }

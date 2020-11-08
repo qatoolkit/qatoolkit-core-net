@@ -1,0 +1,241 @@
+﻿[
+
+  {
+    "BasePath": "https://qatoolkitapi.azurewebsites.net/",
+    "Path": "/api/bicycles",
+    "OperationId": "NewBike",
+    "Method": {
+      "Method": "POST"
+    },
+    "Summary": "Create new bike",
+    "Description": "Add new bike",
+    "Tags": [
+      "Public"
+    ],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "string",
+        "Nullable": false,
+        "Value": "1",
+        "Required": false,
+        "Location": 2
+      },
+      {
+        "Name": "X-version",
+        "Type": "string",
+        "Nullable": false,
+        "Value": null,
+        "Required": false,
+        "Location": 3
+      }
+    ],
+    "RequestBodies": [
+      {
+        "Name": "Bicycle",
+        "Required": false,
+        "ContentType": 0,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": "Bike Id",
+            "Format": "int32",
+            "Type": "integer",
+            "Value": "1",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": "Bike name",
+            "Format": null,
+            "Type": "string",
+            "Value": "Foil",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "brand",
+            "Description": "Bicycle brand",
+            "Format": null,
+            "Type": "string",
+            "Value": "Cannondale",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "BicycleType",
+            "Description": null,
+            "Format": "int32",
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "0",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "1",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "2",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "3",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Responses": [
+      {
+        "StatusCode": 400,
+        "Type": 2,
+        "Properties": [
+          {
+            "Name": "statusCode",
+            "Description": null,
+            "Format": "int32",
+            "Type": "integer",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "statusDescription",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "message",
+            "Description": null,
+            "Format": null,
+            "Type": "string",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "errorCode",
+            "Description": null,
+            "Format": "int32",
+            "Type": "integer",
+            "Value": null,
+            "Required": false,
+            "Properties": null
+          }
+        ]
+      },
+      {
+        "StatusCode": 201,
+        "Type": 2,
+        "Properties": [
+          {
+            "Name": "id",
+            "Description": "Bike Id",
+            "Format": "int32",
+            "Type": "integer",
+            "Value": "1",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "name",
+            "Description": "Bike name",
+            "Format": null,
+            "Type": "string",
+            "Value": "Foil",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "brand",
+            "Description": "Bicycle brand",
+            "Format": null,
+            "Type": "string",
+            "Value": "Cannondale",
+            "Required": false,
+            "Properties": null
+          },
+          {
+            "Name": "BicycleType",
+            "Description": null,
+            "Format": "int32",
+            "Type": "enum",
+            "Value": null,
+            "Required": false,
+            "Properties": [
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "0",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "1",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "2",
+                "Required": false,
+                "Properties": null
+              },
+              {
+                "Name": null,
+                "Description": null,
+                "Format": null,
+                "Type": "string",
+                "Value": "3",
+                "Required": false,
+                "Properties": null
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "TestTypes": [],
+    "AuthenticationTypes": []
+  }
+]
