@@ -1,4 +1,5 @@
-﻿using QAToolKit.Core.Models;
+﻿using QAToolKit.Core.Exceptions;
+using QAToolKit.Core.Models;
 using System;
 using Xunit;
 
@@ -64,7 +65,7 @@ namespace QAToolKit.Core.Test.Models
         [InlineData("application/pdf")]
         public void ConvertFromString_Fails(string value)
         {
-            Assert.Throws<Exception>(() => ContentType.From(value));
+            Assert.Throws<QAToolKitCoreException>(() => ContentType.From(value));
         }
 
         [Theory]

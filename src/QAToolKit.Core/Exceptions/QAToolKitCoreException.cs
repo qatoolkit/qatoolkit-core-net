@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace QAToolKit.Core.Exceptions
 {
-    internal class QAToolKitCoreException : Exception
+    public class QAToolKitCoreException : Exception
     {
         public QAToolKitCoreException(string message) : base(message)
         {
