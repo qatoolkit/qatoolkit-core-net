@@ -116,7 +116,7 @@ namespace QAToolKit.Core.Models
         {
             if (value == null)
             {
-                throw new Exception($"{value} is invalid content type. Check the documentation which types are supported.");
+                throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported.");
             }
 
             return value._value switch

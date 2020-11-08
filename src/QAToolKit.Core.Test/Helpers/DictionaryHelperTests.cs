@@ -4,7 +4,7 @@ using Xunit;
 
 namespace QAToolKit.Core.Test.Helpers
 {
-    public class DictionaryHelperTest
+    public class DictionaryHelperTests
     {
         [Fact]
         public void DictionaryContainsKey_Success()
