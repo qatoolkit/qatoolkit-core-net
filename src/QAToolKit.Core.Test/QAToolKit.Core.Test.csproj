@@ -26,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\AddBike.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\addPet.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

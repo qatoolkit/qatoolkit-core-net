@@ -3,7 +3,7 @@
     /// <summary>
     /// SQL test result interface
     /// </summary>
-    public interface ISQLTestResult
+    public interface ISqlTestResult
     {
         /// <summary>
         /// SQL result exists
@@ -11,3 +11,4 @@
         public bool Exists { get; set; }
     }
 }
+

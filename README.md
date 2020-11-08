@@ -1,6 +1,8 @@
 # QAToolKit Core library
 ![.NET Core](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)
-![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core)
+![CodeQL Analyze](https://github.com/qatoolkit/qatoolkit-core-net/workflows/CodeQL%20Analyze/badge.svg)
+![Sonarqube Analyze](https://github.com/qatoolkit/qatoolkit-core-net/workflows/Sonarqube%20Analyze/badge.svg)
+![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core?label=QAToolKit.Core)
 
 ## Description
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core objects and functions of the toolkit. It's normally not used as a standalone library but is a dependency for other QAToolKit libraries.
@@ -58,12 +60,13 @@ What happend behind the curtains, the model proxy class is generated, which is t
 
 To-do
 
-## 2. To-do
+## To-do
 
+- **This library is an early alpha version**
 - `HttpRequestHeaderGenerator` is missing implementation.
 - `HttpRequestBodyGenerator` need to cover the whole spectrum of object tipes. Currently it's missing arrays, and nested objects. It's on the priority list.
 
-# License
+## License
 
 MIT License
 
