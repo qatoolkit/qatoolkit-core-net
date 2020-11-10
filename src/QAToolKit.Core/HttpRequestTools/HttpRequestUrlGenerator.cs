@@ -71,7 +71,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 {
                     if (_dataReplacerOptions.ReplacementValues != null)
                     {
-                        var replacementValue = _dataReplacerOptions.ReplacementValues.GetValue(parameter.Name);
+                        var replacementValue = _dataReplacerOptions.ReplacementValues?.GetValue(parameter.Name);
 
                         if (replacementValue != null)
                         {
