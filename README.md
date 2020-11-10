@@ -1,11 +1,13 @@
 # QAToolKit Core library
-![.NET Core](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)
-![CodeQL Analyze](https://github.com/qatoolkit/qatoolkit-core-net/workflows/CodeQL%20Analyze/badge.svg)
-![Sonarqube Analyze](https://github.com/qatoolkit/qatoolkit-core-net/workflows/Sonarqube%20Analyze/badge.svg)
-![Nuget](https://img.shields.io/nuget/v/QAToolKit.Core?label=QAToolKit.Core)
+![https://github.com/qatoolkit/qatoolkit-core-net/actions](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)
+![https://github.com/qatoolkit/qatoolkit-core-net/security/code-scanning](https://github.com/qatoolkit/qatoolkit-core-net/workflows/CodeQL%20Analyze/badge.svg)
+![https://sonarcloud.io/dashboard?id=qatoolkit_qatoolkit-core-net](https://github.com/qatoolkit/qatoolkit-core-net/workflows/Sonarqube%20Analyze/badge.svg)
+![https://www.nuget.org/packages/QAToolKit.Core/](https://img.shields.io/nuget/v/QAToolKit.Core?label=QAToolKit.Core)
 
 ## Description
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core objects and functions of the toolkit. It's normally not used as a standalone library but is a dependency for other QAToolKit libraries.
+
+Supported .NET frameworks and standards: `netstandard2.0`, `netstandard2.1`, `netcoreapp3.1`, `net5.0`
 
 ## 1. HttpRequest functions
 HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core` library contains `HttpRequestTools` which can manipulate the HttpRequest object.

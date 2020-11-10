@@ -59,12 +59,11 @@ namespace QAToolKit.Core.HttpRequestTools
             }
         }
 
-        //TODO: extend to support arrays, enums, object arrays
         private string GenerateBodyJsonString(RequestBody requestBody)
         {
             JObject obj = new JObject();
 
-            var modelReplacementValue = _dataReplacerOptions.ReplacementValues.GetValue(requestBody.Name);
+            var modelReplacementValue = _dataReplacerOptions.ReplacementValues?.GetValue(requestBody.Name);
 
             if (modelReplacementValue != null)
             {
@@ -77,7 +76,7 @@ namespace QAToolKit.Core.HttpRequestTools
                 var propertyName = GetPropertyName(property);
                 if (IsSimple(propertyType))
                 {
-                    var propertyReplacementValue = _dataReplacerOptions.ReplacementValues.GetValue(property.Name);
+                    var propertyReplacementValue = _dataReplacerOptions.ReplacementValues?.GetValue(property.Name);
 
                     if (propertyReplacementValue != null)
                     {
@@ -90,11 +89,8 @@ namespace QAToolKit.Core.HttpRequestTools
                 }
                 else
                 {
-                    var propertyReplacementValue = _dataReplacerOptions.ReplacementValues.GetValue(property.Name);
+                    var propertyReplacementValue = _dataReplacerOptions.ReplacementValues?.GetValue(property.Name);
 
-                    //TODO
-                    //if (property.Required)
-                    //{
                     if (propertyType == typeof(IList))
                     {
                         if (propertyReplacementValue != null)
@@ -114,7 +110,6 @@ namespace QAToolKit.Core.HttpRequestTools
                     {
                         throw new QAToolKitCoreException($"{property.Type} not valid a type.");
                     }
-                    //}
                 }
             }
 
