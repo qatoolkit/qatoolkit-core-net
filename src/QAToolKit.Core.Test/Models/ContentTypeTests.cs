@@ -1,6 +1,5 @@
 ﻿using QAToolKit.Core.Exceptions;
 using QAToolKit.Core.Models;
-using System;
 using Xunit;
 
 namespace QAToolKit.Core.Test.Models

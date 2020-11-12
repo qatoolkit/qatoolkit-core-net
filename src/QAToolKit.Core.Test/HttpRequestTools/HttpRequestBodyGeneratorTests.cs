@@ -6,7 +6,6 @@ using QAToolKit.Core.Test.Fixtures;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 

@@ -1,5 +1,4 @@
 ﻿using QAToolKit.Core.Exceptions;
-using System;
 
 namespace QAToolKit.Core.Models
 {
