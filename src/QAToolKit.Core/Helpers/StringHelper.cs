@@ -92,7 +92,7 @@ namespace QAToolKit.Core.Helpers
         public static List<int> AllIndexesOf(string str, string value)
         {
             if (String.IsNullOrEmpty(value))
-                throw new ArgumentException("the string to find may not be empty", "value");
+                throw new ArgumentException("the string to find may not be empty", nameof(value));
             var indexes = new List<int>();
             for (int index = 0; ; index += value.Length)
             {

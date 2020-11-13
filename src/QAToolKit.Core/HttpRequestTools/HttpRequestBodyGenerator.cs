@@ -116,19 +116,19 @@ namespace QAToolKit.Core.HttpRequestTools
             return obj.ToString(Formatting.None);
         }
 
-        private string GetPropertyName(Property property)
+        private static string GetPropertyName(Property property)
         {
             return property.Name;
         }
 
-        private bool IsSimple(Type type)
+        private static bool IsSimple(Type type)
         {
             return type == typeof(long)
                 || type == typeof(int)
                 || type == typeof(string);
         }
 
-        private Type GetPropertyType(Property property)
+        private static Type GetPropertyType(Property property)
         {
             switch (property.Type)
             {
