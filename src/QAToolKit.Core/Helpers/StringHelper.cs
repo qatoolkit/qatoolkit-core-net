@@ -92,7 +92,7 @@ namespace QAToolKit.Core.Helpers
         public static List<int> AllIndexesOf(string str, string value)
         {
             if (String.IsNullOrEmpty(value))
-                throw new ArgumentException("the string to find may not be empty", "value");
+                throw new ArgumentException("the string to find may not be empty", nameof(value));
             var indexes = new List<int>();
             for (int index = 0; ; index += value.Length)
             {
@@ -133,7 +133,7 @@ namespace QAToolKit.Core.Helpers
         /// <returns></returns>
         public static bool ContainsCaseInsensitive(this string text, string value, StringComparison stringComparison = StringComparison.CurrentCultureIgnoreCase)
         {
-            return text.IndexOf(value, stringComparison) >= 0;
+            return text.ContainsCaseInsensitive(value, stringComparison);
         }
     }
 }
