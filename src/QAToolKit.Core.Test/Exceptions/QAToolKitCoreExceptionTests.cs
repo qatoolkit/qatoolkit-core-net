@@ -7,7 +7,7 @@ namespace QAToolKit.Core.Test.Exceptions
     public class QAToolKitCoreExceptionTests
     {
         [Fact]
-        public void CreateExceptionTest_Successful()
+        public static void CreateExceptionTest_Successful()
         {
             var exception = new QAToolKitCoreException("my error");
 
@@ -15,7 +15,7 @@ namespace QAToolKit.Core.Test.Exceptions
         }
 
         [Fact]
-        public void CreateExceptionWithInnerExceptionTest_Successful()
+        public static void CreateExceptionWithInnerExceptionTest_Successful()
         {
             var innerException = new Exception("Inner");
             var exception = new QAToolKitCoreException("my error", innerException);
