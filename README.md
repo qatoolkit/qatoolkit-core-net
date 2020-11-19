@@ -1,8 +1,8 @@
 # QAToolKit Core library
-![https://github.com/qatoolkit/qatoolkit-core-net/actions](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)
-![https://github.com/qatoolkit/qatoolkit-core-net/security/code-scanning](https://github.com/qatoolkit/qatoolkit-core-net/workflows/CodeQL%20Analyze/badge.svg)
-![https://sonarcloud.io/dashboard?id=qatoolkit_qatoolkit-core-net](https://github.com/qatoolkit/qatoolkit-core-net/workflows/Sonarqube%20Analyze/badge.svg)
-![https://www.nuget.org/packages/QAToolKit.Core/](https://img.shields.io/nuget/v/QAToolKit.Core?label=QAToolKit.Core)
+[![Build .NET Library](https://github.com/qatoolkit/qatoolkit-core-net/workflows/.NET%20Core/badge.svg?branch=main)](https://github.com/qatoolkit/qatoolkit-core-net/actions)
+[![CodeQL](https://github.com/qatoolkit/qatoolkit-core-net/workflows/CodeQL%20Analyze/badge.svg)](https://github.com/qatoolkit/qatoolkit-core-net/security/code-scanning)
+[![Sonarcloud Quality gate](https://github.com/qatoolkit/qatoolkit-core-net/workflows/Sonarqube%20Analyze/badge.svg)](https://sonarcloud.io/dashboard?id=qatoolkit_qatoolkit-core-net)
+[![NuGet package](https://img.shields.io/nuget/v/QAToolKit.Core?label=QAToolKit.Core)](https://www.nuget.org/packages/QAToolKit.Core/)
 
 ## Description
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core objects and functions of the toolkit. It's normally not used as a standalone library but is a dependency for other QAToolKit libraries.
