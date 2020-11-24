@@ -136,7 +136,7 @@ namespace QAToolKit.Core.HttpRequestTools
         /// Replace Url path parameters
         /// </summary>
         /// <returns></returns>
-        internal string GetPath()
+        private string GetPath()
         {
             string path = _httpRequest.Path;
 
@@ -161,7 +161,7 @@ namespace QAToolKit.Core.HttpRequestTools
             return path;
         }
 
-        private string GenerateQueryParameters(Dictionary<string, string> keyValuePairs)
+        private static string GenerateQueryParameters(Dictionary<string, string> keyValuePairs)
         {
             var parameters = new List<string>();
 
