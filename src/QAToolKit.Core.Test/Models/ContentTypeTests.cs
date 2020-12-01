@@ -61,7 +61,7 @@ namespace QAToolKit.Core.Test.Models
         [Theory]
         [InlineData("")]
         [InlineData(null)]
-        [InlineData("application/pdf")]
+        [InlineData("somestring")]
         public void ConvertFromString_Fails(string value)
         {
             Assert.Throws<QAToolKitCoreException>(() => ContentType.From(value));
@@ -165,6 +165,39 @@ namespace QAToolKit.Core.Test.Models
         public void ConvertBinaryStringToEnum_Success()
         {
             Assert.Equal(ContentType.Enumeration.OctetStream, ContentType.ToEnum("application/octet-stream"));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        [InlineData("somestring")]
+        public void ConvertStringToEnum_Fails(string value)
+        {
+            Assert.Throws<QAToolKitCoreException>(()=> ContentType.ToEnum(value));
+        }
+
+        [Fact]
+        public void ConvertJsonStringToContentType_Success()
+        {
+            Assert.Equal(ContentType.Json, ContentType.From("application/json"));
+        }
+
+        [Fact]
+        public void ConvertXmlStringToContentType_Success()
+        {
+            Assert.Equal(ContentType.Xml, ContentType.From("application/xml"));
+        }
+
+        [Fact]
+        public void ConvertFormStringToContentType_Success()
+        {
+            Assert.Equal(ContentType.FormUrlEncoded, ContentType.From("application/x-www-form-urlencoded"));
+        }
+
+        [Fact]
+        public void ConvertBinaryStringToContentType_Success()
+        {
+            Assert.Equal(ContentType.OctetStream, ContentType.From("application/octet-stream"));
         }
     }
 }
