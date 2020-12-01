@@ -52,11 +52,11 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// List of test type tags
         /// </summary>
-        public List<TestType> TestTypes { get; set; }
+        public List<TestType.Enumeration> TestTypes { get; set; }
         /// <summary>
         /// A list of authentication type tags
         /// </summary>
-        public List<AuthenticationType> AuthenticationTypes { get; set; }
+        public List<AuthenticationType.Enumeration> AuthenticationTypes { get; set; }
     }
 
     /// <summary>

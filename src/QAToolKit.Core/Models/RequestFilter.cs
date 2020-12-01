@@ -14,10 +14,10 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// A list of allowed authentication types
         /// </summary>
-        public IEnumerable<AuthenticationType> AuthenticationTypes { get; set; }
+        public IEnumerable<AuthenticationType.Enumeration> AuthenticationTypes { get; set; }
         /// <summary>
         /// A list of allowed test types
         /// </summary>
-        public IEnumerable<TestType> TestTypes { get; set; }
+        public IEnumerable<TestType.Enumeration> TestTypes { get; set; }
     }
 }
