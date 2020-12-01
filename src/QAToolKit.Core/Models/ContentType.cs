@@ -3,7 +3,7 @@
 namespace QAToolKit.Core.Models
 {
     /// <summary>
-    /// Http body Content Type
+    /// Built-in Http body Content Type
     /// </summary>
     public class ContentType
     {
