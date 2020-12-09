@@ -70,7 +70,7 @@ namespace QAToolKit.Core.Test.Models
         {
             Assert.Equal(AuthenticationType.Basic, AuthenticationType.From(value));
         }
-        
+
         [Theory]
         [InlineData("")]
         [InlineData(null)]

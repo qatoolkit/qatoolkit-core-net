@@ -27,7 +27,15 @@ namespace QAToolKit.Core.Models
             /// <summary>
             /// Binary content type for uploading files for example
             /// </summary>
-            OctetStream
+            OctetStream,
+            /// <summary>
+            /// multipart/form-data content type
+            /// </summary>
+            MultipartFormData,
+            /// <summary>
+            /// text/plain content type
+            /// </summary>
+            TextPlain
         }
 
         private readonly string _value;
@@ -48,6 +56,14 @@ namespace QAToolKit.Core.Models
         /// application/octet-stream content type
         /// </summary>
         public static readonly ContentType OctetStream = new ContentType("application/octet-stream");
+        /// <summary>
+        /// multipart/form-data content type
+        /// </summary>
+        public static readonly ContentType MultipartFormData = new ContentType("multipart/form-data");
+        /// <summary>
+        /// text/plain content type
+        /// </summary>
+        public static readonly ContentType TextPlain = new ContentType("text/plain");
 
         /// <summary>
         /// Content type constructor
@@ -85,6 +101,8 @@ namespace QAToolKit.Core.Models
                 "application/xml" => Xml,
                 "application/x-www-form-urlencoded" => FormUrlEncoded,
                 "application/octet-stream" => OctetStream,
+                "multipart/form-data" => MultipartFormData,
+                "text/plain" => TextPlain,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -102,6 +120,8 @@ namespace QAToolKit.Core.Models
                 Enumeration.Xml => Xml,
                 Enumeration.FormUrlEncoded => FormUrlEncoded,
                 Enumeration.OctetStream => OctetStream,
+                Enumeration.MultipartFormData => MultipartFormData,
+                Enumeration.TextPlain => TextPlain,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -124,6 +144,8 @@ namespace QAToolKit.Core.Models
                 "application/xml" => Enumeration.Xml,
                 "application/x-www-form-urlencoded" => Enumeration.FormUrlEncoded,
                 "application/octet-stream" => Enumeration.OctetStream,
+                "multipart/form-data" => Enumeration.MultipartFormData,
+                "text/plain" => Enumeration.TextPlain,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -146,6 +168,8 @@ namespace QAToolKit.Core.Models
                 "application/xml" => Enumeration.Xml,
                 "application/x-www-form-urlencoded" => Enumeration.FormUrlEncoded,
                 "application/octet-stream" => Enumeration.OctetStream,
+                "multipart/form-data" => Enumeration.MultipartFormData,
+                "text/plain" => Enumeration.TextPlain,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
