@@ -3,11 +3,16 @@
 [![CodeQL](https://github.com/qatoolkit/qatoolkit-core-net/workflows/CodeQL%20Analyze/badge.svg)](https://github.com/qatoolkit/qatoolkit-core-net/security/code-scanning)
 [![Sonarcloud Quality gate](https://github.com/qatoolkit/qatoolkit-core-net/workflows/Sonarqube%20Analyze/badge.svg)](https://sonarcloud.io/dashboard?id=qatoolkit_qatoolkit-core-net)
 [![NuGet package](https://img.shields.io/nuget/v/QAToolKit.Core?label=QAToolKit.Core)](https://www.nuget.org/packages/QAToolKit.Core/)
+[![Discord](https://img.shields.io/discord/787220825127780354?color=%23267CB9&label=Discord%20chat)](https://discord.gg/hYs6ayYQC5)
 
 ## Description
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core objects and functions of the toolkit. It's normally not used as a standalone library but is a dependency for other QAToolKit libraries.
 
 Supported .NET frameworks and standards: `netstandard2.0`, `netstandard2.1`, `netcoreapp3.1`, `net5.0`
+
+Get in touch with me on:
+
+[![Discord](https://img.shields.io/discord/787220825127780354?color=%23267CB9&label=Discord%20chat)](https://discord.gg/hYs6ayYQC5)
 
 ## 1. HttpRequest functions
 HttpRequest object is one of the main objects that is shared among the QA Toolkit libraries. `QAToolKit.Core` library contains `HttpRequestTools` which can manipulate the HttpRequest object.
@@ -72,7 +77,7 @@ To-do
 
 MIT License
 
-Copyright (c) 2020 Miha Jakovac
+Copyright (c) 2020-2021 Miha Jakovac
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
