@@ -7,7 +7,7 @@ namespace QAToolKit.Core.Helpers
     /// <summary>
     /// Hashing Helper
     /// </summary>
-    public class HashingHelper
+    public static class HashingHelper
     {
         /// <summary>
         /// Generate a non-cryptographic string hash by MurMur algorithm
