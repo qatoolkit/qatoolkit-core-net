@@ -6,8 +6,15 @@ namespace QAToolKit.Core.Test.Helpers
 {
     public class DictionaryHelperTests
     {
-        [Fact]
-        public void DictionaryContainsKey_Success()
+        [Theory]
+        [InlineData("key1")]
+        [InlineData("kEy1")]
+        [InlineData("caTegory")]
+        [InlineData("Category")]
+        [InlineData("category")]
+        [InlineData("Name")]
+        [InlineData("name")]
+        public void DictionaryContainsKey_Success(string key)
         {
             var dictionary = new Dictionary<string, object> {
                 { "Key1", "Id"},
@@ -15,13 +22,7 @@ namespace QAToolKit.Core.Test.Helpers
                 { "Name", "MJ"}
             };
 
-            Assert.True(dictionary.KeyExists("key1"));
-            Assert.True(dictionary.KeyExists("kEy1"));
-            Assert.True(dictionary.KeyExists("caTegory"));
-            Assert.True(dictionary.KeyExists("Category"));
-            Assert.True(dictionary.KeyExists("category"));
-            Assert.True(dictionary.KeyExists("Name"));
-            Assert.True(dictionary.KeyExists("name"));
+            Assert.True(dictionary.KeyExists(key)); ;
         }
 
         [Fact]
