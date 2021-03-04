@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace QAToolKit.Core.Helpers
@@ -16,8 +17,8 @@ namespace QAToolKit.Core.Helpers
         /// <returns></returns>
         public static string ReplaceMultipleSpacesWithOne(string input)
         {
-            RegexOptions options = RegexOptions.None;
-            Regex regex = new Regex("[ ]{2,}", options);
+            const RegexOptions options = RegexOptions.None;
+            var regex = new Regex("[ ]{2,}", options);
             return regex.Replace(input, " ");
         }
 
@@ -30,26 +31,23 @@ namespace QAToolKit.Core.Helpers
         /// <returns></returns>
         public static string Between(string mainString, string firstString, string lastString)
         {
-            string FinalString;
-            var Pos1 = mainString.ToLower().IndexOf(firstString.ToLower()) + firstString.Length;
-            var Pos2 = mainString.ToLower().IndexOf(lastString.ToLower());
+            var pos1 = mainString.ToLower().IndexOf(firstString.ToLower()) + firstString.Length;
+            var pos2 = mainString.ToLower().IndexOf(lastString.ToLower());
 
-            if (Pos1 > Pos2)
+            if (pos1 > pos2)
             {
                 var allIndexes = AllIndexesOf(mainString.ToLower(), lastString.ToLower());
 
-                foreach (int index in allIndexes)
+                foreach (var index in allIndexes)
                 {
-                    if (index > Pos1)
-                    {
-                        Pos2 = index;
-                        break;
-                    }
+                    if (index <= pos1) continue;
+                    pos2 = index;
+                    break;
                 }
             }
 
-            FinalString = mainString.ToLower().Substring(Pos1, Pos2 - Pos1);
-            return FinalString;
+            var finalString = mainString.ToLower().Substring(pos1, pos2 - pos1);
+            return finalString;
         }
 
 
@@ -89,12 +87,12 @@ namespace QAToolKit.Core.Helpers
         /// <param name="str"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static List<int> AllIndexesOf(string str, string value)
+        public static IEnumerable<int> AllIndexesOf(string str, string value)
         {
-            if (String.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
                 throw new ArgumentException("the string to find may not be empty", nameof(value));
             var indexes = new List<int>();
-            for (int index = 0; ; index += value.Length)
+            for (var index = 0;; index += value.Length)
             {
                 index = str.IndexOf(value, index);
                 if (index == -1)
@@ -131,9 +129,25 @@ namespace QAToolKit.Core.Helpers
         /// <param name="value"></param>
         /// <param name="stringComparison"></param>
         /// <returns></returns>
-        public static bool ContainsCaseInsensitive(this string text, string value, StringComparison stringComparison = StringComparison.CurrentCultureIgnoreCase)
+        public static bool ContainsCaseInsensitive(this string text, string value,
+            StringComparison stringComparison = StringComparison.CurrentCultureIgnoreCase)
         {
             return text.IndexOf(value, stringComparison) >= 0;
+        }
+
+        /// <summary>
+        /// Convert strings with different separators to pascal case string
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="separators"></param>
+        /// <returns></returns>
+        public static string ToPascalCase(this string input, string[] separators)
+        {
+            var words = input.Split(separators, StringSplitOptions.RemoveEmptyEntries)
+                .Select(word => word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower());
+
+            var result = string.Concat(words);
+            return result;
         }
     }
 }
