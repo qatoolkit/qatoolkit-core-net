@@ -106,5 +106,21 @@ namespace QAToolKit.Core.Test.Helpers
         {
             Assert.True(input.ContainsCaseInsensitive("Test STrinG 1"));
         }
+        
+        [Theory]
+        [InlineData("test string   ")]
+        [InlineData("test string")]
+        [InlineData("test-string ")]
+        [InlineData(" test_string")]
+        [InlineData("TEST string   ")]
+        [InlineData("test String")]
+        [InlineData("test-STRING ")]
+        [InlineData(" TEST STRING")]
+        public void ConvertStringToPascalCase_Success(string input)
+        {
+            var result = StringHelper.ToPascalCase(input, new string[]{"-","_"," "});
+
+            Assert.Equal("TestString", result);
+        }
     }
 }
