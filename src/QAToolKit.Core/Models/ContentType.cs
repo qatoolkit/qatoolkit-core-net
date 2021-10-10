@@ -35,7 +35,11 @@ namespace QAToolKit.Core.Models
             /// <summary>
             /// text/plain content type
             /// </summary>
-            TextPlain
+            TextPlain,
+            /// <summary>
+            /// text/json content type
+            /// </summary>
+            TextJson
         }
 
         private readonly string _value;
@@ -64,6 +68,10 @@ namespace QAToolKit.Core.Models
         /// text/plain content type
         /// </summary>
         public static readonly ContentType TextPlain = new ContentType("text/plain");
+        /// <summary>
+        /// text/json content type
+        /// </summary>
+        public static readonly ContentType TextJson = new ContentType("text/json");
 
         /// <summary>
         /// Content type constructor
@@ -103,6 +111,7 @@ namespace QAToolKit.Core.Models
                 "application/octet-stream" => OctetStream,
                 "multipart/form-data" => MultipartFormData,
                 "text/plain" => TextPlain,
+                "text/json" => TextJson,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -122,6 +131,7 @@ namespace QAToolKit.Core.Models
                 Enumeration.OctetStream => OctetStream,
                 Enumeration.MultipartFormData => MultipartFormData,
                 Enumeration.TextPlain => TextPlain,
+                Enumeration.TextJson => TextJson,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -146,6 +156,7 @@ namespace QAToolKit.Core.Models
                 "application/octet-stream" => Enumeration.OctetStream,
                 "multipart/form-data" => Enumeration.MultipartFormData,
                 "text/plain" => Enumeration.TextPlain,
+                "text/json" => Enumeration.TextJson,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -170,6 +181,7 @@ namespace QAToolKit.Core.Models
                 "application/octet-stream" => Enumeration.OctetStream,
                 "multipart/form-data" => Enumeration.MultipartFormData,
                 "text/plain" => Enumeration.TextPlain,
+                "text/json" => Enumeration.TextJson,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
