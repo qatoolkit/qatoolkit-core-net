@@ -36,7 +36,7 @@ namespace QAToolKit.Core.HttpRequestTools
         /// <returns></returns>
         public object ReplaceRequestBodyModel(ContentType.Enumeration useContentType)
         {
-            var requestBody = _httpRequest.RequestBodies.FirstOrDefault(body => body.ContentType == useContentType);
+            var requestBody = _httpRequest.RequestBodies.FirstOrDefault(body => body.ContentType == ContentType.From(useContentType).Value());
 
             if (requestBody != null)
             {

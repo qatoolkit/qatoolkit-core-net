@@ -16,7 +16,7 @@
       {
         "Name": "Pet",
         "Required": true,
-        "ContentType": 0,
+        "ContentType": "application/json",
         "Properties": [
           {
             "Name": "id",
@@ -163,7 +163,7 @@
       {
         "Name": "Pet",
         "Required": true,
-        "ContentType": 1,
+        "ContentType": "application/xml",
         "Properties": [
           {
             "Name": "id",
@@ -310,7 +310,7 @@
       {
         "Name": "Pet",
         "Required": true,
-        "ContentType": 2,
+        "ContentType": "application/x-www-form-urlencoded",
         "Properties": [
           {
             "Name": "id",

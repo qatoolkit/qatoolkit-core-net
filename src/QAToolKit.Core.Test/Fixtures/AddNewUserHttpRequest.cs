@@ -20,7 +20,7 @@ namespace QAToolKit.Core.Test.Fixtures
                 Path = "/users",
                 RequestBodies = new List<RequestBody>() {
                     new RequestBody(){
-                        ContentType = ContentType.Enumeration.Json,
+                        ContentType = "application/json",
                         Name = "User",
                         Required = true,
                         Properties = new List<Property>(){
