@@ -34,7 +34,7 @@
       {
         "Name": "Bicycle",
         "Required": false,
-        "ContentType": 0,
+        "ContentType": "application/json",
         "Properties": [
           {
             "Name": "id",

@@ -18,7 +18,7 @@ namespace QAToolKit.Core.Models
         /// <summary>
         /// Request body content type
         /// </summary>
-        public ContentType.Enumeration ContentType { get; set; }
+        public string ContentType { get; set; }
         /// <summary>
         /// Request body model properties
         /// </summary>

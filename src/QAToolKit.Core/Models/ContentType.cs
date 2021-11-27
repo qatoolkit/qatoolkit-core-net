@@ -39,7 +39,19 @@ namespace QAToolKit.Core.Models
             /// <summary>
             /// text/json content type
             /// </summary>
-            TextJson
+            TextJson,
+            /// <summary>
+            /// Text xml content type
+            /// </summary>
+            TextXml,
+            /// <summary>
+            /// Text CSV content type
+            /// </summary>
+            TextCsv,
+            /// <summary>
+            /// PDF content type
+            /// </summary>
+            Pdf
         }
 
         private readonly string _value;
@@ -72,7 +84,19 @@ namespace QAToolKit.Core.Models
         /// text/json content type
         /// </summary>
         public static readonly ContentType TextJson = new ContentType("text/json");
-
+        /// <summary>
+        /// Text XML content type
+        /// </summary>
+        public static readonly ContentType TextXml = new ContentType("text/xml");
+        /// <summary>
+        /// Text CSV content type
+        /// </summary>
+        public static readonly ContentType TextCsv = new ContentType("text/csv");
+        /// <summary>
+        /// PDF content type
+        /// </summary>
+        public static readonly ContentType Pdf = new ContentType("application/pdf");
+        
         /// <summary>
         /// Content type constructor
         /// </summary>
@@ -112,6 +136,9 @@ namespace QAToolKit.Core.Models
                 "multipart/form-data" => MultipartFormData,
                 "text/plain" => TextPlain,
                 "text/json" => TextJson,
+                "text/xml" => TextXml,
+                "text/csv" => TextCsv,
+                "application/pdf" => Pdf,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -132,6 +159,9 @@ namespace QAToolKit.Core.Models
                 Enumeration.MultipartFormData => MultipartFormData,
                 Enumeration.TextPlain => TextPlain,
                 Enumeration.TextJson => TextJson,
+                Enumeration.TextXml => TextXml,
+                Enumeration.TextCsv => TextCsv,
+                Enumeration.Pdf => Pdf,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -157,6 +187,9 @@ namespace QAToolKit.Core.Models
                 "multipart/form-data" => Enumeration.MultipartFormData,
                 "text/plain" => Enumeration.TextPlain,
                 "text/json" => Enumeration.TextJson,
+                "text/xml" => Enumeration.TextXml,
+                "text/csv" => Enumeration.TextCsv,
+                "application/pdf" => Enumeration.Pdf,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
@@ -182,6 +215,9 @@ namespace QAToolKit.Core.Models
                 "multipart/form-data" => Enumeration.MultipartFormData,
                 "text/plain" => Enumeration.TextPlain,
                 "text/json" => Enumeration.TextJson,
+                "text/xml" => Enumeration.TextXml,
+                "text/csv" => Enumeration.TextCsv,
+                "application/pdf" => Enumeration.Pdf,
                 _ => throw new QAToolKitCoreException($"{value} is invalid content type. Check the documentation which types are supported."),
             };
         }
