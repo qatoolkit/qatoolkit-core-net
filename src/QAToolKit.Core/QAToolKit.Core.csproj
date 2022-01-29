@@ -19,7 +19,7 @@
 		<PackageProjectUrl>https://github.com/qatoolkit/qatoolkit-core-net</PackageProjectUrl>
 		<PackageIcon>qatoolkit-64x64.png</PackageIcon>
 		<RepositoryUrl>https://github.com/qatoolkit/qatoolkit-core-net</RepositoryUrl>
-		<PackageTags>qatoolkit-core-net;.net;c#;f#;dotnet;netstandard;net5</PackageTags>
+		<PackageTags>qatoolkit-core-net;.net;c#;f#;dotnet;netstandard;net6</PackageTags>
 		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
 	
