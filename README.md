@@ -8,7 +8,11 @@
 ## Description
 `QAToolKit.Core` is a .NET Standard 2.1 library, that contains core objects and functions of the toolkit. It's normally not used as a standalone library but is a dependency for other QAToolKit libraries.
 
+<<<<<<< HEAD
+Supported .NET frameworks and standards: `netstandard2.0`, `netstandard2.1`, `net7.0`
+=======
 Supported .NET frameworks and standards: `netstandard2.0`, `netstandard2.1`, `netcoreapp3.1`, `net6.0`
+>>>>>>> main
 
 Get in touch with me on:
 
@@ -77,7 +81,9 @@ To-do
 
 MIT License
 
-Copyright (c) 2020-2021 Miha Jakovac
+Copyright (c) 2020-2023 Miha Jakovac
+Supported .NET frameworks and standards: `netstandard2.0`, `netstandard2.1`, `net7.0`
+Copyright (c) 2020-2023 Miha Jakovac
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
