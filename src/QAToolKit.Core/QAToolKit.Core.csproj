@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+<<<<<<< HEAD
 		<TargetFrameworks>netstandard2.0;netstandard2.1;net7.0</TargetFrameworks>
+=======
+		<TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0</TargetFrameworks>
+>>>>>>> main
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<LangVersion>latest</LangVersion>
 		<ProjectGuid>5a2191e1-6682-437f-8ed2-de9324bfc4f4</ProjectGuid>
@@ -35,6 +39,9 @@
 
 	<ItemGroup>
 	  <PackageReference Include="murmurhash" Version="1.0.3" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net7.0</TargetFrameworks>
+		<PackageTags>qatoolkit-core-net;.net;c#;f#;dotnet;netstandard;net6</PackageTags>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
 </Project>
