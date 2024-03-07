@@ -17,16 +17,16 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Setup .NET Core 7.0
-      uses: actions/setup-dotnet@v1
+      uses: actions/checkout@v4.1.1
+    - name: Setup .NET Core 8.0
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '7.0.x'        
+        dotnet-version: '8.0.x'        
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@v2.16.3
       with:
         languages: ${{ matrix.language }}
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+      uses: github/codeql-action/autobuild@v2.16.3
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v2.16.3
